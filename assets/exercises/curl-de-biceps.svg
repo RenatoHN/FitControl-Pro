@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" role="img" aria-label="Curl de bíceps con Polea o mancuernas">
+<defs><linearGradient id="bg" x1="0" x2="1"><stop stop-color="#eff6ff"/><stop offset="1" stop-color="#eef2ff"/></linearGradient></defs>
+<rect width="600" height="360" rx="28" fill="url(#bg)"/>
+<circle cx="505" cy="65" r="75" fill="#dbeafe" opacity=".7"/>
+<g fill="none" stroke="#1e3a8a" stroke-width="7"><path d="M320 70v210M320 85h100v190h-45"/><circle cx="420" cy="92" r="16"/><path d="M420 108v95l-45 25"/><rect x="300" y="280" width="55" height="18" rx="8" fill="#1e3a8a"/></g>
+<g fill="none" stroke="#0f172a" stroke-width="9" stroke-linecap="round"><circle cx="275" cy="100" r="24" fill="#fde68a"/><path d="M275 124l20 92M288 160l95 2M295 216l-48 72M295 216l55 72"/><path d="M365 143l28 19-28 20" stroke="#2563eb"/></g>
+<rect x="22" y="292" width="556" height="48" rx="16" fill="#fff" opacity=".92"/>
+<text x="42" y="322" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#0f172a">Curl de bíceps</text>
+</svg>

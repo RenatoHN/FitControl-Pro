@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0f172a" />
+  <title>FitControl Pro</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-mark">FC</div>
+        <div><strong>FitControl Pro</strong><span>Entrenamiento integral</span></div>
+      </div>
+      <nav>
+        <button class="nav-item active" data-view="dashboard">📊 Dashboard</button>
+        <button class="nav-item" data-view="workouts">🏋️ Registrar ejercicio</button>
+        <button class="nav-item" data-view="cardio">🏃 Cardio y natación</button>
+        <button class="nav-item" data-view="recovery">🧖 Recuperación y sauna</button>
+        <button class="nav-item" data-view="body">📏 Peso y medidas</button>
+        <button class="nav-item" data-view="nutrition">🥗 Nutrición</button>
+        <button class="nav-item" data-view="planner">✨ Ejercicio del día</button>
+        <button class="nav-item" data-view="history">🗂️ Historial</button>
+        <button class="nav-item" data-view="settings">⚙️ Configuración</button>
+      </nav>
+      <div class="sidebar-footer">
+        <p>Datos guardados en este dispositivo.</p>
+        <button id="exportBtn" class="btn secondary full">Exportar respaldo</button>
+      </div>
+    </aside>
+
+    <main>
+      <header class="topbar">
+        <button class="icon-btn menu-btn" id="menuBtn">☰</button>
+        <div>
+          <h1 id="pageTitle">Dashboard</h1>
+          <p id="todayLabel"></p>
+        </div>
+        <div class="top-actions">
+          <button id="quickWorkoutBtn" class="btn primary">+ Registrar</button>
+        </div>
+      </header>
+
+      <section class="view active" id="dashboardView">
+        <div class="hero-card">
+          <div>
+            <span class="eyebrow">Resumen semanal</span>
+            <h2>Tu progreso, organizado en un solo lugar</h2>
+            <p id="heroMessage">Registra tu primera actividad para comenzar a generar recomendaciones.</p>
+          </div>
+          <div class="score-ring" id="consistencyRing"><span id="consistencyScore">0%</span><small>constancia</small></div>
+        </div>
+
+        <div class="stats-grid">
+          <article class="stat-card"><span>Sesiones esta semana</span><strong id="statSessions">0</strong><small id="statSessionsDelta">Meta: 4</small></article>
+          <article class="stat-card"><span>Volumen de fuerza</span><strong id="statVolume">0 kg</strong><small>Carga × repeticiones</small></article>
+          <article class="stat-card"><span>Cardio acumulado</span><strong id="statCardio">0 min</strong><small>Incluye natación</small></article>
+          <article class="stat-card"><span>Recuperación</span><strong id="statRecovery">0 min</strong><small>Sauna, movilidad y otras</small></article>
+          <article class="stat-card"><span>Peso actual</span><strong id="statWeight">—</strong><small id="weightTrend">Sin registros</small></article>
+        </div>
+
+        <div class="dashboard-grid">
+          <article class="panel span-2">
+            <div class="panel-head"><div><h3>Progreso de peso corporal</h3><p>Histórico y proyección estimada</p></div><select id="projectionRange"><option value="30">30 días</option><option value="60">60 días</option><option value="90">90 días</option></select></div>
+            <div class="chart-wrap"><canvas id="weightChart"></canvas></div>
+          </article>
+          <article class="panel">
+            <div class="panel-head"><div><h3>Distribución de entrenamiento</h3><p>Últimos 30 días</p></div></div>
+            <div class="chart-wrap small"><canvas id="activityChart"></canvas></div>
+          </article>
+          <article class="panel">
+            <div class="panel-head"><div><h3>Recomendación de hoy</h3><p>Según recuperación y balance muscular</p></div></div>
+            <div id="todayRecommendation" class="recommendation"></div>
+            <button class="btn primary full" data-go="planner">Ver rutina sugerida</button>
+          </article>
+          <article class="panel span-2">
+            <div class="panel-head"><div><h3>Comparativo por ejercicio</h3><p>Mejor peso y volumen registrado</p></div><select id="exerciseCompareSelect"></select></div>
+            <div class="chart-wrap"><canvas id="exerciseChart"></canvas></div>
+          </article>
+          <article class="panel">
+            <div class="panel-head"><div><h3>Próximos objetivos</h3><p>Proyección automática</p></div></div>
+            <div id="goalsProjection" class="goal-list"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="view" id="workoutsView">
+        <div class="two-column">
+          <form class="panel form-panel" id="strengthForm">
+            <div class="panel-head"><div><h3>Registrar ejercicio de fuerza</h3><p>Máquina, peso, series y repeticiones</p></div></div>
+            <div class="form-grid">
+              <label>Fecha y hora<input type="datetime-local" id="strengthDate" required /></label>
+              <label>Grupo muscular<select id="muscleGroup" required><option value="Piernas">Piernas</option><option value="Pecho">Pecho</option><option value="Espalda">Espalda</option><option value="Hombros">Hombros</option><option value="Brazos">Brazos</option><option value="Core">Core</option><option value="Cuerpo completo">Cuerpo completo</option></select></label>
+              <label>Ejercicio<input list="exerciseOptions" id="exerciseName" placeholder="Ej. Extensión de piernas" required /></label>
+              <datalist id="exerciseOptions"></datalist>
+              <label>Máquina o elemento<input list="equipmentOptions" id="equipment" placeholder="Ej. Máquina de extensión" required /></label>
+              <datalist id="equipmentOptions"></datalist>
+              <label>Peso utilizado (kg)<input type="number" id="machineWeight" min="0" step="0.5" required /></label>
+              <label>Series<input type="number" id="sets" min="1" max="20" value="4" required /></label>
+              <label>Repeticiones<input type="number" id="reps" min="1" max="100" value="15" required /></label>
+              <label>Duración (min)<input type="number" id="strengthDuration" min="0" value="20" /></label>
+              <label>Esfuerzo percibido (1-10)<input type="range" id="rpe" min="1" max="10" value="7" /><output id="rpeValue">7</output></label>
+              <label class="wide">Notas<textarea id="strengthNotes" rows="3" placeholder="Técnica, molestias, ajustes del asiento, etc."></textarea></label>
+            </div>
+            <button class="btn primary" type="submit">Guardar ejercicio</button>
+          </form>
+          <article class="panel">
+            <div class="panel-head"><div><h3>Últimos ejercicios</h3><p>Tu actividad de fuerza reciente</p></div></div>
+            <div id="recentStrength" class="timeline"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="view" id="cardioView">
+        <div class="two-column">
+          <form class="panel form-panel" id="cardioForm">
+            <div class="panel-head"><div><h3>Registrar cardio</h3><p>Caminadora, escalera, bicicleta, elíptica, natación y más</p></div></div>
+            <div class="form-grid">
+              <label>Fecha y hora<input type="datetime-local" id="cardioDate" required /></label>
+              <label>Tipo<select id="cardioType" required><option>Natación</option><option>Caminadora</option><option>Escalera</option><option>Bicicleta</option><option>Elíptica</option><option>Remo</option><option>Caminata</option><option>Carrera</option><option>Otro</option></select></label>
+              <label>Máquina / ubicación<input type="text" id="cardioMachine" placeholder="Ej. Life Fitness, piscina 25 m" /></label>
+              <label>Duración (min)<input type="number" id="cardioDuration" min="1" required /></label>
+              <label>Distancia (km)<input type="number" id="cardioDistance" min="0" step="0.01" /></label>
+              <label>Calorías<input type="number" id="cardioCalories" min="0" /></label>
+              <label>Ritmo medio<input type="text" id="cardioPace" placeholder="Ej. 2:30/100 m o 7:15/km" /></label>
+              <label>Frecuencia cardiaca media<input type="number" id="heartRate" min="0" max="250" /></label>
+              <label>Esfuerzo percibido (1-10)<input type="range" id="cardioRpe" min="1" max="10" value="6" /><output id="cardioRpeValue">6</output></label>
+              <label class="wide">Notas<textarea id="cardioNotes" rows="3"></textarea></label>
+            </div>
+            <button class="btn primary" type="submit">Guardar cardio</button>
+          </form>
+
+          <article class="panel upload-panel">
+            <div class="panel-head"><div><h3>Leer captura de actividad</h3><p>Sube una captura de natación o máquina de cardio</p></div></div>
+            <label class="dropzone" for="screenshotInput"><input type="file" id="screenshotInput" accept="image/*" /><span>📷</span><strong>Seleccionar captura</strong><small>PNG, JPG o foto de la pantalla</small></label>
+            <img id="screenshotPreview" class="preview hidden" alt="Vista previa" />
+            <button id="scanScreenshotBtn" class="btn secondary full" disabled>Analizar captura</button>
+            <div id="ocrStatus" class="status-box hidden"></div>
+            <div id="ocrResult" class="ocr-result hidden">
+              <h4>Datos detectados</h4>
+              <p>Revisa los campos antes de guardar. La lectura puede variar según la aplicación y calidad de la imagen.</p>
+              <pre id="ocrRawText"></pre>
+              <button id="applyOcrBtn" class="btn primary full">Pasar datos al formulario</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+
+      <section class="view" id="recoveryView">
+        <div class="two-column">
+          <form class="panel form-panel" id="recoveryForm">
+            <div class="panel-head"><div><h3>Registrar recuperación</h3><p>Sauna, vapor, movilidad, estiramiento, masaje y otras actividades</p></div></div>
+            <div class="form-grid">
+              <label>Fecha y hora<input type="datetime-local" id="recoveryDate" required /></label>
+              <label>Actividad<select id="recoveryType" required><option>Sauna</option><option>Baño de vapor</option><option>Movilidad</option><option>Estiramiento</option><option>Masaje</option><option>Baño frío</option><option>Descanso activo</option><option>Otra</option></select></label>
+              <label>Duración (min)<input type="number" id="recoveryDuration" min="1" required /></label>
+              <label>Percepción posterior (1-10)<input type="range" id="recoveryFeeling" min="1" max="10" value="7" /><output id="recoveryFeelingValue">7</output></label>
+              <label>Hidratación posterior (ml)<input type="number" id="recoveryWater" min="0" step="50" /></label>
+              <label class="wide">Notas<textarea id="recoveryNotes" rows="3" placeholder="Ej. temperatura aproximada, rondas, sensación, molestias o recuperación percibida"></textarea></label>
+            </div>
+            <button class="btn primary" type="submit">Guardar recuperación</button>
+          </form>
+          <article class="panel">
+            <div class="panel-head"><div><h3>Actividad de recuperación reciente</h3><p>Minutos dedicados fuera del entrenamiento principal</p></div></div>
+            <div id="recentRecovery" class="timeline"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="view" id="bodyView">
+        <div class="two-column">
+          <form class="panel form-panel" id="bodyForm">
+            <div class="panel-head"><div><h3>Registrar peso y medidas</h3><p>Control de composición y cambios corporales</p></div></div>
+            <div class="form-grid">
+              <label>Fecha<input type="date" id="bodyDate" required /></label>
+              <label>Peso (kg)<input type="number" id="bodyWeight" min="20" step="0.1" required /></label>
+              <label>Cintura (cm)<input type="number" id="waist" min="0" step="0.1" /></label>
+              <label>Pecho (cm)<input type="number" id="chest" min="0" step="0.1" /></label>
+              <label>Cadera (cm)<input type="number" id="hips" min="0" step="0.1" /></label>
+              <label>Brazo (cm)<input type="number" id="arm" min="0" step="0.1" /></label>
+              <label>Muslo (cm)<input type="number" id="thigh" min="0" step="0.1" /></label>
+              <label>% grasa corporal<input type="number" id="bodyFat" min="0" max="70" step="0.1" /></label>
+              <label class="wide">Notas<textarea id="bodyNotes" rows="3"></textarea></label>
+            </div>
+            <button class="btn primary" type="submit">Guardar medidas</button>
+          </form>
+          <article class="panel">
+            <div class="panel-head"><div><h3>Evolución de medidas</h3><p>Comparación entre primer y último registro</p></div></div>
+            <div id="measurementSummary" class="measurement-grid"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="view" id="nutritionView">
+        <div class="stats-grid nutrition-stats">
+          <article class="stat-card"><span>Calorías registradas hoy</span><strong id="todayCalories">0</strong><small id="calorieTargetLabel">Meta sin definir</small></article>
+          <article class="stat-card"><span>Proteína</span><strong id="todayProtein">0 g</strong><small id="proteinTargetLabel">Meta sin definir</small></article>
+          <article class="stat-card"><span>Agua</span><strong id="todayWater">0 ml</strong><small>Hidratación diaria</small></article>
+          <article class="stat-card"><span>Comidas</span><strong id="todayMeals">0</strong><small>Registros de hoy</small></article>
+        </div>
+        <div class="two-column">
+          <form class="panel form-panel" id="nutritionForm">
+            <div class="panel-head"><div><h3>Registrar alimento o comida</h3><p>Seguimiento básico de energía y macronutrientes</p></div></div>
+            <div class="form-grid">
+              <label>Fecha y hora<input type="datetime-local" id="mealDate" required /></label>
+              <label>Tipo<select id="mealType"><option>Desayuno</option><option>Almuerzo</option><option>Cena</option><option>Merienda</option><option>Pre-entreno</option><option>Post-entreno</option></select></label>
+              <label class="wide">Alimento / descripción<input type="text" id="mealName" required placeholder="Ej. Pollo, arroz y ensalada" /></label>
+              <label>Calorías<input type="number" id="mealCalories" min="0" required /></label>
+              <label>Proteína (g)<input type="number" id="mealProtein" min="0" step="0.1" /></label>
+              <label>Carbohidratos (g)<input type="number" id="mealCarbs" min="0" step="0.1" /></label>
+              <label>Grasas (g)<input type="number" id="mealFat" min="0" step="0.1" /></label>
+              <label>Agua (ml)<input type="number" id="mealWater" min="0" step="50" /></label>
+            </div>
+            <button class="btn primary" type="submit">Guardar comida</button>
+          </form>
+          <article class="panel">
+            <div class="panel-head"><div><h3>Plan orientativo del día</h3><p>Ajustado a la meta configurada</p></div></div>
+            <div id="nutritionPlan" class="nutrition-plan"></div>
+            <p class="disclaimer">Este módulo es orientativo y no reemplaza una valoración profesional, especialmente si existe una condición médica.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="view" id="plannerView">
+        <article class="panel planner-hero">
+          <div><span class="eyebrow">Plan inteligente</span><h2 id="plannerTitle">Rutina sugerida</h2><p id="plannerReason"></p></div>
+          <button id="refreshPlanBtn" class="btn secondary">Generar otra opción</button>
+        </article>
+        <div id="dailyPlan" class="routine-grid"></div>
+        <article class="panel"><h3>Reglas usadas para sugerir la rutina</h3><div id="plannerRules" class="rule-list"></div></article>
+      </section>
+
+      <section class="view" id="historyView">
+        <article class="panel">
+          <div class="panel-head"><div><h3>Historial completo</h3><p>Filtra y revisa todos tus registros</p></div><div class="filters"><select id="historyType"><option value="all">Todos</option><option value="strength">Fuerza</option><option value="cardio">Cardio</option><option value="recovery">Recuperación</option><option value="body">Medidas</option><option value="nutrition">Nutrición</option></select><input type="search" id="historySearch" placeholder="Buscar..." /></div></div>
+          <div id="historyTable" class="table-wrap"></div>
+        </article>
+      </section>
+
+      <section class="view" id="settingsView">
+        <form class="panel form-panel" id="settingsForm">
+          <div class="panel-head"><div><h3>Perfil y objetivos</h3><p>Estos datos personalizan las recomendaciones</p></div></div>
+          <div class="form-grid">
+            <label>Nombre<input type="text" id="profileName" placeholder="Tu nombre" /></label>
+            <label>Edad<input type="number" id="profileAge" min="13" max="100" /></label>
+            <label>Estatura (cm)<input type="number" id="profileHeight" min="100" max="250" /></label>
+            <label>Objetivo<select id="profileGoal"><option value="fat_loss">Reducir grasa corporal</option><option value="muscle_gain">Ganar masa muscular</option><option value="fitness">Mejorar condición física</option><option value="maintenance">Mantener peso y salud</option></select></label>
+            <label>Peso objetivo (kg)<input type="number" id="targetWeight" min="20" step="0.1" /></label>
+            <label>Sesiones por semana<input type="number" id="weeklyGoal" min="1" max="7" value="4" /></label>
+            <label>Meta de calorías diarias<input type="number" id="calorieTarget" min="1000" max="6000" /></label>
+            <label>Meta de proteína (g)<input type="number" id="proteinTarget" min="20" max="400" /></label>
+            <label class="wide">Limitaciones, molestias o ejercicios a evitar<textarea id="limitations" rows="3" placeholder="Ej. Evitar impacto alto o movimientos que causen dolor"></textarea></label>
+          </div>
+          <button class="btn primary" type="submit">Guardar configuración</button>
+        </form>
+        <article class="panel danger-zone"><h3>Administración de datos</h3><p>Importa un respaldo o reinicia la información local.</p><div class="inline-actions"><label class="btn secondary file-btn">Importar respaldo<input type="file" id="importInput" accept="application/json" /></label><button id="resetBtn" class="btn danger">Borrar todos los datos</button></div></article>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast" class="toast"></div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
