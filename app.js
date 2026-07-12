@@ -1,5 +1,5 @@
 const DB_KEY='fitcontrol-pro-v1';
-const defaultDB={strength:[],cardio:[],recovery:[],body:[],nutrition:[],meta:{seedVersion:0},settings:{name:'',age:'',height:'',goal:'fat_loss',targetWeight:'',weeklyGoal:4,calorieTarget:2200,proteinTarget:130,limitations:''}};
+const defaultDB={strength:[],cardio:[],recovery:[],body:[],nutrition:[],photos:{before:'',after:''},meta:{seedVersion:0},settings:{name:'',age:'',height:'',goal:'fat_loss',targetWeight:'',weeklyGoal:4,calorieTarget:2200,proteinTarget:130,limitations:''}};
 let db=loadDB();
 applyInitialHistory();
 let charts={};
@@ -15,43 +15,6 @@ const exerciseLibrary={
   'Cuerpo completo':[['Sentadilla goblet','Mancuerna'],['Peso muerto con mancuernas','Mancuernas'],['Remo con sentadilla','Banda elástica']]
 };
 
-const exerciseGuides={
-  'Extensión de piernas':['Ajusta el respaldo y alinea las rodillas con el eje de la máquina. Extiende sin bloquear las rodillas.','Cuádriceps'],
-  'Prensa de piernas':['Apoya toda la espalda, coloca los pies al ancho de hombros y baja con control.','Piernas y glúteos'],
-  'Curl femoral':['Alinea la rodilla con el pivote y flexiona sin levantar la cadera.','Isquiotibiales'],
-  'Abducción de piernas':['Mantén la espalda apoyada y abre las piernas de forma controlada.','Glúteo medio'],
-  'Aducción de piernas':['Cierra las piernas sin rebotes y conserva el tronco estable.','Aductores'],
-  'Elevación de talones':['Sube los talones, pausa arriba y baja lentamente hasta sentir estiramiento.','Pantorrillas'],
-  'Estocadas':['Da un paso estable, baja verticalmente y mantén la rodilla alineada con el pie.','Piernas y glúteos'],
-  'Press de pecho':['Ajusta el asiento para que las empuñaduras queden a la altura del pecho y empuja sin bloquear codos.','Pecho y tríceps'],
-  'Press inclinado':['Mantén los omóplatos apoyados y mueve las mancuernas sobre la parte alta del pecho.','Pecho superior'],
-  'Aperturas':['Con codos ligeramente flexionados, junta los brazos sin encoger los hombros.','Pectorales'],
-  'Jalón al pecho':['Lleva la barra hacia la parte alta del pecho y evita balancear el tronco.','Espalda'],
-  'Remo sentado':['Tira hacia el abdomen con el pecho elevado y junta los omóplatos.','Espalda media'],
-  'Remo unilateral':['Apoya una mano, mantén la espalda neutra y lleva el codo hacia la cadera.','Dorsal y espalda media'],
-  'Hiperextensión lumbar':['Sube hasta alinear el cuerpo, sin arquear en exceso la zona lumbar.','Cadena posterior'],
-  'Press de hombros':['Empuja hacia arriba manteniendo abdomen firme y hombros alejados de las orejas.','Hombros'],
-  'Elevaciones laterales':['Eleva hasta la altura de los hombros con codos suaves y sin impulso.','Deltoides laterales'],
-  'Pájaros':['Inclina el torso y abre los brazos manteniendo la espalda neutra.','Deltoides posteriores'],
-  'Curl de bíceps':['Mantén los codos cerca del cuerpo y evita balancear el torso.','Bíceps'],
-  'Extensión de tríceps':['Fija los codos al costado y extiende completamente con control.','Tríceps'],
-  'Curl martillo':['Sujeta las mancuernas con palmas enfrentadas y mantén los codos quietos.','Bíceps y antebrazo'],
-  'Plancha':['Alinea hombros, cadera y talones; aprieta abdomen y glúteos.','Core'],
-  'Crunch abdominal':['Flexiona el tronco desde el abdomen, sin tirar del cuello.','Abdomen'],
-  'Pallof press':['Resiste la rotación de la polea y mantén el tronco completamente estable.','Core antirotación'],
-  'Sentadilla goblet':['Sostén la mancuerna frente al pecho, baja con rodillas alineadas y espalda neutra.','Piernas y glúteos'],
-  'Peso muerto con mancuernas':['Lleva la cadera hacia atrás con espalda neutra y mancuernas cerca de las piernas.','Cadena posterior'],
-  'Remo con sentadilla':['Mantén tensión en la banda durante la sentadilla y el remo.','Cuerpo completo'],
-  'Caminata o bicicleta':['Mantén un ritmo cómodo en el que puedas hablar y controla la respiración.','Recuperación cardiovascular'],
-  'Movilidad general':['Realiza movimientos lentos y amplios, sin forzar rangos dolorosos.','Movilidad'],
-  'Core ligero':['Mantén tensión abdominal moderada y detén la serie si pierdes la postura.','Core']
-};
-
-function exerciseAsset(name){
- const slug=name.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');
- return `assets/exercises/${slug}.svg`;
-}
-
 function loadDB(){try{return {...defaultDB,...JSON.parse(localStorage.getItem(DB_KEY)||'{}'),settings:{...defaultDB.settings,...(JSON.parse(localStorage.getItem(DB_KEY)||'{}').settings||{})}}}catch{return structuredClone(defaultDB)}}
 function saveDB(){localStorage.setItem(DB_KEY,JSON.stringify(db));renderAll()}
 function uid(){return crypto.randomUUID?crypto.randomUUID():Date.now().toString(36)+Math.random().toString(36).slice(2)}
@@ -63,7 +26,7 @@ function num(v){return Number(v)||0}
 function daysAgo(n){const d=new Date();d.setDate(d.getDate()-n);return d}
 function within(date,n){return new Date(date)>=daysAgo(n)}
 function applyInitialHistory(){
- db.strength=db.strength||[];db.cardio=db.cardio||[];db.recovery=db.recovery||[];db.body=db.body||[];db.nutrition=db.nutrition||[];db.meta=db.meta||{seedVersion:0};db.settings={...defaultDB.settings,...(db.settings||{})};
+ db.strength=db.strength||[];db.cardio=db.cardio||[];db.recovery=db.recovery||[];db.body=db.body||[];db.nutrition=db.nutrition||[];db.photos=db.photos||{before:'',after:''};db.meta=db.meta||{seedVersion:0};db.settings={...defaultDB.settings,...(db.settings||{})};
  if((db.meta.seedVersion||0)>=2)return;
  const strength=[
   {id:'hist-20260630-leg-extension',date:'2026-06-30T18:00',muscle:'Piernas',exercise:'Extensión de piernas',equipment:'Máquina de extensión',weight:0,sets:4,reps:15,duration:0,rpe:7,notes:'Historial previo. Peso no informado.'},
@@ -153,9 +116,10 @@ function applyInitialHistory(){
 }
 
 function init(){
+ db.photos=db.photos||{before:'',after:''};
  document.getElementById('todayLabel').textContent=new Intl.DateTimeFormat('es-GT',{weekday:'long',year:'numeric',month:'long',day:'numeric'}).format(new Date());
  ['strengthDate','cardioDate','recoveryDate','mealDate'].forEach(id=>document.getElementById(id).value=nowLocal());document.getElementById('bodyDate').value=today();
- buildDatalists();bindNavigation();bindForms();bindOCR();bindDataControls();renderAll();
+ buildDatalists();bindNavigation();bindForms();bindOCR();bindDataControls();bindEvolution();renderAll();
 }
 function bindNavigation(){document.querySelectorAll('.nav-item').forEach(b=>b.onclick=()=>showView(b.dataset.view));document.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>showView(b.dataset.go));document.getElementById('quickWorkoutBtn').onclick=()=>showView('workouts');document.getElementById('menuBtn').onclick=()=>document.getElementById('sidebar').classList.toggle('open')}
 function showView(name){document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));document.querySelectorAll('.nav-item').forEach(v=>v.classList.toggle('active',v.dataset.view===name));document.getElementById(name+'View').classList.add('active');document.getElementById('pageTitle').textContent=document.querySelector(`[data-view="${name}"]`)?.textContent.replace(/^\S+\s/,'')||'FitControl Pro';document.getElementById('sidebar').classList.remove('open');window.scrollTo({top:0,behavior:'smooth'})}
@@ -165,7 +129,7 @@ function bindForms(){
  document.getElementById('rpe').oninput=e=>document.getElementById('rpeValue').value=e.target.value;document.getElementById('cardioRpe').oninput=e=>document.getElementById('cardioRpeValue').value=e.target.value;
  document.getElementById('muscleGroup').onchange=e=>{const first=exerciseLibrary[e.target.value][0];document.getElementById('exerciseName').value=first[0];document.getElementById('equipment').value=first[1]};
  document.getElementById('strengthForm').onsubmit=e=>{e.preventDefault();db.strength.push({id:uid(),date:strengthDate.value,muscle:muscleGroup.value,exercise:exerciseName.value,equipment:equipment.value,weight:num(machineWeight.value),sets:num(sets.value),reps:num(reps.value),duration:num(strengthDuration.value),rpe:num(rpe.value),notes:strengthNotes.value});e.target.reset();strengthDate.value=nowLocal();sets.value=4;reps.value=15;strengthDuration.value=20;rpe.value=7;rpeValue.value=7;saveDB();toast('Ejercicio guardado')};
- document.getElementById('cardioForm').onsubmit=e=>{e.preventDefault();db.cardio.push({id:uid(),date:cardioDate.value,type:cardioType.value,machine:cardioMachine.value,duration:num(cardioDuration.value),distance:num(cardioDistance.value),calories:num(cardioCalories.value),pace:cardioPace.value,heartRate:num(heartRate.value),rpe:num(cardioRpe.value),notes:cardioNotes.value});e.target.reset();cardioDate.value=nowLocal();cardioRpe.value=6;cardioRpeValue.value=6;saveDB();toast('Cardio guardado')};
+ document.getElementById('cardioForm').onsubmit=e=>{e.preventDefault();db.cardio.push({id:uid(),date:cardioDate.value,type:cardioType.value,machine:cardioMachine.value,duration:num(cardioDuration.value),distance:num(cardioDistance.value),calories:num(cardioCalories.value),pace:cardioPace.value,heartRate:num(heartRate.value),swolf:num(cardioSwolf.value),strokeRate:num(strokeRate.value),rpe:num(cardioRpe.value),notes:cardioNotes.value});e.target.reset();cardioDate.value=nowLocal();cardioRpe.value=6;cardioRpeValue.value=6;saveDB();toast('Cardio guardado')};
  document.getElementById('recoveryFeeling').oninput=e=>document.getElementById('recoveryFeelingValue').value=e.target.value;
  document.getElementById('recoveryForm').onsubmit=e=>{e.preventDefault();db.recovery.push({id:uid(),date:recoveryDate.value,type:recoveryType.value,duration:num(recoveryDuration.value),feeling:num(recoveryFeeling.value),water:num(recoveryWater.value),notes:recoveryNotes.value});e.target.reset();recoveryDate.value=nowLocal();recoveryFeeling.value=7;recoveryFeelingValue.value=7;saveDB();toast('Actividad de recuperación guardada')};
  document.getElementById('bodyForm').onsubmit=e=>{e.preventDefault();db.body.push({id:uid(),date:bodyDate.value,weight:num(bodyWeight.value),waist:num(waist.value),chest:num(chest.value),hips:num(hips.value),arm:num(arm.value),thigh:num(thigh.value),bodyFat:num(bodyFat.value),notes:bodyNotes.value});db.body.sort((a,b)=>new Date(a.date)-new Date(b.date));e.target.reset();bodyDate.value=today();saveDB();toast('Medidas guardadas')};
@@ -179,7 +143,7 @@ function parseCardioText(text){const t=text.replace(/,/g,'.');const duration=(t.
 
 function bindDataControls(){document.getElementById('exportBtn').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(db,null,2)],{type:'application/json'}));a.download=`fitcontrol-respaldo-${today()}.json`;a.click()};document.getElementById('importInput').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{db={...defaultDB,...JSON.parse(r.result)};db.recovery=db.recovery||[];db.meta=db.meta||{seedVersion:1};saveDB();toast('Respaldo importado')}catch{toast('Archivo no válido')}};r.readAsText(f)};document.getElementById('resetBtn').onclick=()=>{if(confirm('¿Seguro que deseas borrar todos los datos?')){db=structuredClone(defaultDB);saveDB();toast('Datos eliminados')}}}
 
-function renderAll(){renderDashboard();renderRecent();renderRecovery();renderBodySummary();renderNutrition();renderPlanner();renderHistory();loadSettings()}
+function renderAll(){renderDashboard();renderRecent();renderRecovery();renderBodySummary();renderNutrition();renderPlanner();renderHistory();renderEvolution();loadSettings()}
 function renderDashboard(){const weekStrength=db.strength.filter(x=>within(x.date,7)),weekCardio=db.cardio.filter(x=>within(x.date,7)),weekRecovery=db.recovery.filter(x=>within(x.date,7));const sessionDays=new Set([...weekStrength,...weekCardio].map(x=>x.date.slice(0,10)));const volume=weekStrength.reduce((s,x)=>s+x.weight*x.sets*x.reps,0);const cardio=weekCardio.reduce((s,x)=>s+x.duration,0);const recovery=weekRecovery.reduce((s,x)=>s+x.duration,0);const latest=db.body.at(-1),first=db.body[0];const consistency=Math.min(100,Math.round(sessionDays.size/(db.settings.weeklyGoal||4)*100));statSessions.textContent=sessionDays.size;statSessionsDelta.textContent=`Meta: ${db.settings.weeklyGoal||4}`;statVolume.textContent=`${Math.round(volume).toLocaleString()} kg`;statCardio.textContent=`${Math.round(cardio)} min`;statRecovery.textContent=`${Math.round(recovery)} min`;statWeight.textContent=latest?`${latest.weight.toFixed(1)} kg`:'—';weightTrend.textContent=latest&&first?(latest.weight-first.weight>=0?'+':'')+(latest.weight-first.weight).toFixed(1)+' kg desde el inicio':'Sin registros';consistencyScore.textContent=consistency+'%';consistencyRing.style.background=`conic-gradient(#60a5fa ${consistency}%, transparent 0)`;heroMessage.textContent=sessionDays.size?`Has entrenado ${sessionDays.size} día(s) esta semana. ${consistency>=75?'Vas muy bien con tu constancia.':'Aún puedes acercarte a tu meta semanal.'}`:'Registra tu primera actividad para comenzar a generar recomendaciones.';const rec=getRecommendation();todayRecommendation.innerHTML=`<span class="tag">${rec.group}</span><h4>${rec.title}</h4><p>${rec.reason}</p>`;renderGoals();renderCharts();populateExerciseSelect()}
 function getRecommendation(){const groups=['Piernas','Pecho','Espalda','Hombros','Brazos','Core'];const last={};db.strength.forEach(x=>last[x.muscle]=Math.max(last[x.muscle]||0,new Date(x.date).getTime()));groups.sort((a,b)=>(last[a]||0)-(last[b]||0));const group=groups[0];const recentHard=db.strength.filter(x=>within(x.date,2)&&x.rpe>=8).length;return recentHard?{group:'Recuperación activa',title:'Cardio moderado + movilidad',reason:'Tus registros recientes muestran esfuerzo alto. Conviene priorizar recuperación y técnica.'}:{group,title:`Sesión de ${group.toLowerCase()}`,reason:`Es el grupo con más tiempo sin trabajo registrado, ayudando a mantener un entrenamiento equilibrado.`}}
 function renderGoals(){const latest=db.body.at(-1);let items=[];if(latest&&db.settings.targetWeight){const diff=db.settings.targetWeight-latest.weight;items.push({a:`Peso objetivo: ${db.settings.targetWeight} kg`,b:`Faltan ${Math.abs(diff).toFixed(1)} kg para llegar a la meta.`})}const recent=db.strength.filter(x=>within(x.date,30));if(recent.length){const best=recent.reduce((a,b)=>(b.weight>b.weight?a:b),recent[0]);items.push({a:'Progresión de fuerza',b:'Busca aumentar 2.5–5% cuando completes todas las repeticiones con buena técnica.'})}items.push({a:'Constancia semanal',b:`Objetivo configurado: ${db.settings.weeklyGoal||4} sesiones por semana.`});goalsProjection.innerHTML=items.map(x=>`<div class="goal-item"><strong>${x.a}</strong><span>${x.b}</span></div>`).join('')}
@@ -192,26 +156,7 @@ function renderRecovery(){const arr=[...(db.recovery||[])].sort((a,b)=>new Date(
 function renderBodySummary(){const fields=[['weight','Peso','kg'],['waist','Cintura','cm'],['chest','Pecho','cm'],['hips','Cadera','cm'],['arm','Brazo','cm'],['thigh','Muslo','cm'],['bodyFat','Grasa corporal','%']];const a=db.body[0],b=db.body.at(-1);measurementSummary.innerHTML=fields.map(([k,n,u])=>{const val=b?.[k]||0,diff=a&&b?val-(a[k]||0):0;return `<div class="measurement-card"><strong>${val?val.toFixed(1)+' '+u:'—'}</strong><span>${n}${a&&b&&val?` · ${diff>=0?'+':''}${diff.toFixed(1)} ${u}`:''}</span></div>`}).join('')}
 function renderNutrition(){const todayMeals=db.nutrition.filter(x=>x.date.slice(0,10)===today());todayCalories.textContent=todayMeals.reduce((s,x)=>s+x.calories,0);todayProtein.textContent=todayMeals.reduce((s,x)=>s+x.protein,0).toFixed(0)+' g';todayWater.textContent=todayMeals.reduce((s,x)=>s+x.water,0)+' ml';todayMeals.textContent=todayMeals.length;calorieTargetLabel.textContent=`Meta: ${db.settings.calorieTarget||'—'} kcal`;proteinTargetLabel.textContent=`Meta: ${db.settings.proteinTarget||'—'} g`;const goal=db.settings.goal;const plans={fat_loss:[['Desayuno','Proteína magra + fruta + cereal integral'],['Almuerzo','½ verduras, ¼ proteína, ¼ carbohidrato'],['Merienda','Yogur natural o fruta con proteína'],['Cena','Proteína, verduras y porción moderada de carbohidrato']],muscle_gain:[['Desayuno','Proteína + avena o pan integral + fruta'],['Almuerzo','Proteína abundante + arroz/papa + verduras'],['Post-entreno','Proteína y carbohidrato fácil de digerir'],['Cena','Proteína + carbohidrato + vegetales']],fitness:[['Desayuno','Comida equilibrada con proteína y fibra'],['Almuerzo','Plato variado y suficiente hidratación'],['Merienda','Fruta, yogur o frutos secos'],['Cena','Comida ligera pero completa']],maintenance:[['Desayuno','Proteína, fruta y cereal integral'],['Almuerzo','Plato equilibrado'],['Merienda','Opción pequeña y nutritiva'],['Cena','Proteína y vegetales']]};nutritionPlan.innerHTML=plans[goal].map(x=>`<div class="meal-suggestion"><strong>${x[0]}</strong><span>${x[1]}</span></div>`).join('')}
 function renderPlanner(variant=0){const rec=getRecommendation();plannerTitle.textContent=rec.title;plannerReason.textContent=rec.reason;let group=rec.group;if(group==='Recuperación activa'){dailyPlan.innerHTML=[['Caminata o bicicleta','Cardio suave','20–30 min, RPE 4–5'],['Movilidad general','Colchoneta','10–15 min'],['Core ligero','Plancha','3×20–30 s']].map(cardTpl).join('')}else{const pool=exerciseLibrary[group]||exerciseLibrary.Core;const rotated=[...pool.slice(variant),...pool.slice(0,variant)].slice(0,5);dailyPlan.innerHTML=rotated.map((x,i)=>cardTpl([x[0],x[1],i===0?'4×12–15':i<3?'3–4×10–15':'3×12–20'],i)).join('')}plannerRules.innerHTML=['Evita repetir un grupo trabajado intensamente en las últimas 48 horas.','Prioriza grupos con más días sin registro.','Reduce intensidad cuando los últimos esfuerzos fueron RPE 8–10.','Aumenta el peso solo si completas las repeticiones con técnica estable y sin dolor.'].map(x=>`<div class="rule-item">✓ <span>${x}</span></div>`).join('')}
-function cardTpl(x,i=0){
- const guide=exerciseGuides[x[0]]||['Realiza el movimiento con control y técnica estable.','Trabajo general'];
- return `<article class="exercise-card">
-   <div class="exercise-visual"><img src="${exerciseAsset(x[0])}" alt="Demostración de ${x[0]} usando ${x[1]}" loading="lazy"><span class="number">${i+1}</span></div>
-   <div class="exercise-card-body">
-    <span class="muscle-chip">${guide[1]}</span>
-    <h3>${x[0]}</h3>
-    <div class="equipment-box"><span class="equipment-icon">🏋️</span><div><small>Máquina o elemento</small><strong>${x[1]}</strong></div></div>
-    <p class="exercise-instruction">${guide[0]}</p>
-    <div class="prescription"><span>Rutina sugerida</span><strong>${x[2]}</strong></div>
-    <button class="btn primary full exercise-start" onclick="prefillSuggestedExercise('${x[0].replace(/'/g,"\'")}','${x[1].replace(/'/g,"\'")}')">Registrar este ejercicio</button>
-   </div>
-  </article>`
-}
-window.prefillSuggestedExercise=(name,equipment)=>{
- const group=Object.keys(exerciseLibrary).find(g=>exerciseLibrary[g].some(x=>x[0]===name))||'Core';
- document.querySelector('[data-view="workouts"]').click();
- exerciseName.value=name;document.getElementById('equipment').value=equipment;muscleGroup.value=group;
- strengthDate.value=nowLocal();machineWeight.focus();toast('Ejercicio cargado. Completa el peso y guarda tu resultado.');
-}
+function cardTpl(x,i=0){return `<article class="exercise-card"><div class="number">${i+1}</div><h3>${x[0]}</h3><p>Equipo: ${x[1]}</p><div class="prescription">${x[2]}</div></article>`}
 function renderHistory(){const type=historyType.value,q=historySearch.value.toLowerCase();let rows=[];if(type==='all'||type==='strength')rows.push(...db.strength.map(x=>({id:x.id,type:'Fuerza',date:x.date,detail:`${x.exercise} · ${x.weight} kg · ${x.sets}×${x.reps}`,source:'strength'})));if(type==='all'||type==='cardio')rows.push(...db.cardio.map(x=>({id:x.id,type:x.type,date:x.date,detail:`${x.duration} min · ${x.distance||0} km · ${x.calories||0} kcal`,source:'cardio'})));if(type==='all'||type==='recovery')rows.push(...db.recovery.map(x=>({id:x.id,type:x.type,date:x.date,detail:`${x.duration} min · sensación ${x.feeling}/10${x.water?` · ${x.water} ml de agua`:''}`,source:'recovery'})));if(type==='all'||type==='body')rows.push(...db.body.map(x=>({id:x.id,type:'Medidas',date:x.date,detail:`Peso ${x.weight} kg · Cintura ${x.waist||'—'} cm`,source:'body'})));if(type==='all'||type==='nutrition')rows.push(...db.nutrition.map(x=>({id:x.id,type:x.type,date:x.date,detail:`${x.name} · ${x.calories} kcal · ${x.protein} g proteína`,source:'nutrition'})));rows=rows.filter(x=>(x.type+' '+x.detail).toLowerCase().includes(q)).sort((a,b)=>new Date(b.date)-new Date(a.date));historyTable.innerHTML=rows.length?`<table class="data-table"><thead><tr><th>Fecha</th><th>Tipo</th><th>Detalle</th><th></th></tr></thead><tbody>${rows.map(x=>`<tr><td>${fmtDate(x.date)}</td><td>${x.type}</td><td>${x.detail}</td><td><button class="btn secondary" onclick="editItem('${x.source}','${x.id}')">Editar</button> <button class="delete-btn" onclick="deleteItem('${x.source}','${x.id}')">Eliminar</button></td></tr>`).join('')}</tbody></table>`:'<p class="disclaimer">No hay registros que coincidan con el filtro.</p>'}
 window.editItem=(source,id)=>{
  const item=db[source]?.find(x=>x.id===id);if(!item)return;
@@ -231,3 +176,51 @@ window.deleteItem=(source,id)=>{db[source]=db[source].filter(x=>x.id!==id);saveD
 function loadSettings(){const s=db.settings;profileName.value=s.name||'';profileAge.value=s.age||'';profileHeight.value=s.height||'';profileGoal.value=s.goal||'fat_loss';targetWeight.value=s.targetWeight||'';weeklyGoal.value=s.weeklyGoal||4;calorieTarget.value=s.calorieTarget||'';proteinTarget.value=s.proteinTarget||'';limitations.value=s.limitations||''}
 
 document.addEventListener('DOMContentLoaded',init);
+
+
+function bindEvolution(){
+ const select=document.getElementById('evoExerciseSelect');
+ if(select)select.onchange=renderEvolutionCharts;
+ const bindPhoto=(inputId,key,imgId,removeId)=>{
+  const input=document.getElementById(inputId),img=document.getElementById(imgId),remove=document.getElementById(removeId);
+  input.onchange=async e=>{const file=e.target.files[0];if(!file)return;try{db.photos[key]=await compressImage(file);saveDB();toast('Fotografía guardada en este dispositivo')}catch{toast('No se pudo procesar la fotografía')}};
+  remove.onclick=()=>{db.photos[key]='';saveDB();toast('Fotografía eliminada')};
+ };
+ bindPhoto('beforePhotoInput','before','beforePhoto','removeBeforePhoto');
+ bindPhoto('afterPhotoInput','after','afterPhoto','removeAfterPhoto');
+}
+function compressImage(file){return new Promise((resolve,reject)=>{const r=new FileReader();r.onerror=reject;r.onload=()=>{const im=new Image();im.onerror=reject;im.onload=()=>{const max=900,scale=Math.min(1,max/Math.max(im.width,im.height));const c=document.createElement('canvas');c.width=Math.round(im.width*scale);c.height=Math.round(im.height*scale);c.getContext('2d').drawImage(im,0,0,c.width,c.height);resolve(c.toDataURL('image/jpeg',.72))};im.src=r.result};r.readAsDataURL(file)})}
+function parsePaceMinutes(v){if(!v)return 0;const m=String(v).match(/(\d+):([0-5]\d)/);return m?Number(m[1])+Number(m[2])/60:0}
+function bmiOf(weight){const h=num(db.settings.height)/100;return h&&weight?weight/(h*h):0}
+function estimatedFat(bmi){const age=num(db.settings.age);return bmi&&age?Math.max(3,Math.min(60,1.2*bmi+.23*age-10.8-5.4)):0}
+function physicalAgeData(){
+ const chronological=num(db.settings.age);if(!chronological)return {age:0,factors:[]};
+ let score=0,factors=[];
+ const cardio=db.cardio.filter(x=>within(x.date,60));const strength=db.strength.filter(x=>within(x.date,60));
+ const cardioMin=cardio.reduce((a,x)=>a+x.duration,0)/8;
+ if(cardioMin>=150){score-=3;factors.push('Cardio semanal ≥150 min: favorable')}else if(cardioMin>=90){score-=1;factors.push('Cardio semanal moderado')}else{score+=2;factors.push('Cardio semanal todavía bajo')}
+ const hrs=cardio.map(x=>x.heartRate).filter(Boolean);if(hrs.length){const avg=hrs.reduce((a,b)=>a+b,0)/hrs.length;if(avg<145)score-=1;else if(avg>170)score+=1;factors.push(`FC media registrada: ${Math.round(avg)} lpm`)}
+ const swims=cardio.filter(x=>x.type==='Natación');if(swims.length>=4){score-=1;factors.push('Natación constante en 60 días')}
+ const groups=new Set(strength.map(x=>x.muscle));if(groups.size>=4){score-=2;factors.push('Fuerza distribuida en varios grupos')}else if(strength.length<4){score+=2;factors.push('Pocos registros de fuerza recientes')}
+ const ordered=[...strength].sort((a,b)=>new Date(a.date)-new Date(b.date));if(ordered.length>=4){const first=ordered.slice(0,Math.ceil(ordered.length/2)).reduce((a,x)=>a+x.weight,0)/Math.ceil(ordered.length/2);const last=ordered.slice(Math.floor(ordered.length/2)).reduce((a,x)=>a+x.weight,0)/(ordered.length-Math.floor(ordered.length/2));if(last>first*1.05){score-=2;factors.push('Carga media de fuerza en progreso')}}
+ return {age:Math.max(18,Math.round(chronological+score)),factors};
+}
+function renderEvolution(){
+ const body=[...db.body].sort((a,b)=>new Date(a.date)-new Date(b.date)),last=body.at(-1),first=body[0];const bmi=bmiOf(last?.weight);const fat=last?.bodyFat||estimatedFat(bmi);
+ evoBmi.textContent=bmi?bmi.toFixed(1):'—';evoBmiLabel.textContent=bmi?(bmi<18.5?'Por debajo del rango general':bmi<25?'Dentro del rango general':bmi<30?'Por encima del rango general':'Rango elevado'):'Registra peso y estatura';
+ evoFat.textContent=fat?fat.toFixed(1)+'%':'—';evoFatTrend.textContent=first&&last&&fat?`Cambio: ${((last.bodyFat||estimatedFat(bmiOf(last.weight)))-(first.bodyFat||estimatedFat(bmiOf(first.weight)))).toFixed(1)} puntos`:'Sin registros comparables';
+ const pa=physicalAgeData();physicalAge.textContent=pa.age?pa.age+' años':'—';physicalAgeNote.textContent=pa.age&&db.settings.age?`${pa.age-db.settings.age>0?'+':''}${pa.age-db.settings.age} frente a edad cronológica`:'Requiere edad configurada';physicalAgeFactors.innerHTML=pa.factors.length?pa.factors.map(x=>`<div class="rule-item">✓ <span>${x}</span></div>`).join(''):'<p class="disclaimer">Registra actividad durante varias semanas para calcularlo.</p>';
+ renderGoalProjection(body);renderEvolutionSummary(first,last);renderPhotos();populateEvolutionExercise();renderSwimKpis();renderEvolutionCharts();
+}
+function renderGoalProjection(body){const target=num(db.settings.targetWeight),last=body.at(-1);let eta='—',note='Se necesitan al menos dos pesos';let html='<p class="disclaimer">Registra más datos para generar una proyección mensual.</p>';
+ if(body.length>=2&&target&&last){const a=body[0],days=Math.max(1,(new Date(last.date)-new Date(a.date))/864e5),daily=(last.weight-a.weight)/days;if((target-last.weight)*daily>0){const d=Math.ceil((target-last.weight)/daily);eta=d+' días';note=`Estimación: ${new Date(Date.now()+d*864e5).toLocaleDateString('es-GT',{month:'long',year:'numeric'})}`;html=Array.from({length:6},(_,i)=>{const date=new Date();date.setMonth(date.getMonth()+i+1);const w=last.weight+daily*(i+1)*30;return `<div class="projection-row"><span>${date.toLocaleDateString('es-GT',{month:'short',year:'numeric'})}</span><strong>${w.toFixed(1)} kg</strong></div>`}).join('')}else{note='La tendencia actual no se dirige todavía al objetivo'}}goalEta.textContent=eta;goalEtaNote.textContent=note;monthlyProjection.innerHTML=html}
+function renderEvolutionSummary(a,b){const rows=[];if(a&&b){[['weight','Peso','kg'],['waist','Cintura','cm'],['chest','Pecho','cm'],['hips','Cadera','cm'],['arm','Brazo','cm'],['thigh','Muslo','cm']].forEach(([k,n,u])=>{if(a[k]&&b[k])rows.push(`<div class="goal-item"><strong>${n}: ${b[k].toFixed(1)} ${u}</strong><span>Cambio ${b[k]-a[k]>=0?'+':''}${(b[k]-a[k]).toFixed(1)} ${u}</span></div>`)})}evolutionSummary.innerHTML=rows.join('')||'<p class="disclaimer">Se requieren al menos dos mediciones comparables.</p>'}
+function renderPhotos(){[['before','beforePhoto','removeBeforePhoto'],['after','afterPhoto','removeAfterPhoto']].forEach(([k,i,r])=>{const img=document.getElementById(i),btn=document.getElementById(r);if(db.photos?.[k]){img.src=db.photos[k];img.classList.remove('hidden');btn.classList.remove('hidden')}else{img.removeAttribute('src');img.classList.add('hidden');btn.classList.add('hidden')}})}
+function populateEvolutionExercise(){const sel=document.getElementById('evoExerciseSelect');const names=[...new Set(db.strength.map(x=>x.exercise))];const prev=sel.value;sel.innerHTML=names.length?names.map(x=>`<option>${x}</option>`).join(''):'<option>Sin datos</option>';if(names.includes(prev))sel.value=prev}
+function renderSwimKpis(){const s=db.cardio.filter(x=>x.type==='Natación');const avg=k=>{const a=s.map(x=>num(x[k])).filter(Boolean);return a.length?a.reduce((x,y)=>x+y,0)/a.length:0};const dist=s.reduce((a,x)=>a+x.distance,0),pace=avg('paceNumeric')||(()=>{const a=s.map(x=>parsePaceMinutes(x.pace)).filter(Boolean);return a.length?a.reduce((x,y)=>x+y,0)/a.length:0})();swimKpis.innerHTML=[['Sesiones',s.length,''],['Distancia total',dist.toFixed(2),' km'],['Ritmo medio',pace?Math.floor(pace)+':'+String(Math.round((pace%1)*60)).padStart(2,'0'):'—',''],['SWOLF medio',avg('swolf')?avg('swolf').toFixed(0):'—',''],['FC media',avg('heartRate')?avg('heartRate').toFixed(0):'—',' lpm'],['Brazadas/min',avg('strokeRate')?avg('strokeRate').toFixed(0):'—','']].map(x=>`<div class="measurement-card"><strong>${x[1]}${x[2]}</strong><span>${x[0]}</span></div>`).join('')}
+function renderEvolutionCharts(){
+ const body=[...db.body].sort((a,b)=>new Date(a.date)-new Date(b.date));makeChart('compositionChart',{type:'line',data:{labels:body.map(x=>x.date),datasets:[{label:'Peso (kg)',data:body.map(x=>x.weight),yAxisID:'y'},{label:'IMC',data:body.map(x=>bmiOf(x.weight)),yAxisID:'y1'},{label:'Grasa %',data:body.map(x=>x.bodyFat||estimatedFat(bmiOf(x.weight))),yAxisID:'y1'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'}},scales:{y:{beginAtZero:false},y1:{position:'right',grid:{drawOnChartArea:false}}}}});
+ makeChart('measurementsChart',{type:'line',data:{labels:body.map(x=>x.date),datasets:[['Cintura','waist'],['Pecho','chest'],['Cadera','hips'],['Brazo','arm'],['Muslo','thigh']].map(([label,k])=>({label,data:body.map(x=>x[k]||null),tension:.25}))},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'}}}});
+ const name=evoExerciseSelect.value,arr=db.strength.filter(x=>x.exercise===name).sort((a,b)=>new Date(a.date)-new Date(b.date));makeChart('strengthEvolutionChart',{type:'bar',data:{labels:arr.map(x=>x.date.slice(0,10)),datasets:[{label:'Carga (kg)',data:arr.map(x=>x.weight)},{label:'Volumen / 100',data:arr.map(x=>x.weight*x.sets*x.reps/100)}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'}},scales:{y:{beginAtZero:true}}}});
+ const swim=db.cardio.filter(x=>x.type==='Natación').sort((a,b)=>new Date(a.date)-new Date(b.date));makeChart('swimEvolutionChart',{type:'line',data:{labels:swim.map(x=>x.date.slice(0,10)),datasets:[{label:'Distancia (km)',data:swim.map(x=>x.distance),yAxisID:'y'},{label:'SWOLF',data:swim.map(x=>x.swolf||null),yAxisID:'y1'},{label:'FC media',data:swim.map(x=>x.heartRate||null),yAxisID:'y1'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'}},scales:{y:{beginAtZero:true},y1:{position:'right',grid:{drawOnChartArea:false}}}}})
+}

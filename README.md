@@ -13,7 +13,3 @@ La información se carga una sola vez mediante una migración (`seedVersion: 2`)
 
 ## Uso
 Abra `index.html` en un navegador moderno. Los datos permanecen en el navegador. Use las opciones de exportación para crear copias de seguridad periódicas.
-
-
-## Mejora visual del ejercicio del día
-Cada recomendación incluye ilustración del movimiento, máquina o elemento, instrucciones breves y acceso directo al formulario de registro. Las imágenes están incluidas localmente en `assets/exercises`, por lo que funcionan sin depender de enlaces externos.
