@@ -1,9 +1,49 @@
+
+image(458).png
+
+Pegado text(104).txt
+Documento
+quiero editar las fechas y los pesos de esas fechas
+
+Ha pensado durante 2m 22s
+Listo. Actualicé FitControl Pro para que puedas modificar las mediciones existentes. El código original solamente permitía guardar y mostrar registros, pero no tenía controles para actualizarlos. 
+
+
+Ahora, en Peso y medidas:
+
+Cada fila incluye Editar y Eliminar.
+
+Al presionar Editar, la fecha, el peso y las demás medidas se cargan en el formulario.
+
+El botón cambia a Actualizar medición.
+
+Puedes cancelar la edición sin alterar los datos.
+
+Se mantienen los registros guardados con la misma clave de localStorage.
+
+FitControl_Pro_v12.2_editable.html
+
+Sustituye el archivo HTML actual por esta versión para conservar el mismo origen y acceder a los datos existentes del navegador.
+
+
+
+FitControl_Pro_v12.2_editable.html
+
+
+
+
+
+FitControl_Pro_v12.2_editable.html
+
+
+
+
 <!doctype html>
 <html lang="es">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>FitControl Pro v12.1</title>
+<title>FitControl Pro v12.2</title>
 <style>
 :root{--bg:#07100c;--panel:#0e1914;--panel2:#122019;--line:#273b31;--text:#f5f7f6;--muted:#a8b9b0;--lime:#a8ff2e;--cyan:#4cc9ff;--warn:#ffd166;--bad:#ff6b6b}
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top,#102219 0,#07100c 42%);color:var(--text);font-family:Inter,Segoe UI,Arial,sans-serif}.app{max-width:1500px;margin:auto;padding:18px}.top{position:sticky;top:0;z-index:5;display:flex;gap:20px;align-items:center;justify-content:space-between;background:rgba(8,18,13,.94);backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:22px;padding:14px 18px}.brand{display:flex;align-items:center;gap:10px;font-size:23px;font-weight:800}.logo{display:grid;place-items:center;background:var(--lime);color:#0b150f;width:44px;height:44px;border-radius:12px;font-style:italic}.brand b{color:var(--lime)}nav{display:flex;gap:8px;flex-wrap:wrap}button{font:inherit}.navbtn,.ghost,.primary,.daybtn{border:0;cursor:pointer}.navbtn{background:transparent;color:var(--muted);padding:11px 14px;border-radius:12px;font-weight:700}.navbtn.active,.navbtn:hover{background:#1a2a21;color:var(--lime)}.primary{background:var(--lime);color:#08110c;padding:12px 18px;border-radius:14px;font-weight:900}.ghost{background:#14231b;color:var(--text);border:1px solid var(--line);padding:11px 15px;border-radius:13px}.hero{margin:28px 0 18px;display:flex;justify-content:space-between;gap:20px;align-items:end}.eyebrow{color:var(--lime);font-size:12px;letter-spacing:.16em;font-weight:900}.hero h1{font-size:clamp(30px,5vw,54px);margin:8px 0}.hero p{color:var(--muted);max-width:760px}.notice{background:#13271a;border:1px solid #2e6137;padding:13px 16px;border-radius:14px;margin:14px 0}.hidden{display:none!important}.days{display:grid;grid-template-columns:repeat(7,minmax(120px,1fr));gap:10px;overflow:auto;padding-bottom:4px}.daybtn{min-width:130px;text-align:left;background:var(--panel);border:1px solid var(--line);color:var(--text);padding:14px;border-radius:16px}.daybtn.active{background:var(--lime);color:#07100c}.daybtn small{display:block;opacity:.75}.daybtn strong{display:block;margin:8px 0}.daybtn span{font-size:12px}.panel{background:linear-gradient(145deg,var(--panel),#0a1510);border:1px solid var(--line);border-radius:24px;padding:22px;margin-top:18px}.sectionhead{display:flex;justify-content:space-between;align-items:end;gap:18px;margin-bottom:18px}.sectionhead h2{margin:4px 0;font-size:30px}.sectionhead p{color:var(--muted);margin:0}.exercise-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.exercise{display:grid;grid-template-columns:150px 1fr auto;gap:15px;align-items:center;background:var(--panel2);border:1px solid var(--line);border-radius:18px;overflow:hidden;padding:12px}.machine-art{height:132px;background:#0a120e;border:1px solid #24402f;border-radius:14px;display:grid;place-items:center;position:relative;overflow:hidden}.machine-art svg{width:100%;height:100%}.machine-label{position:absolute;bottom:6px;left:6px;right:6px;background:rgba(2,8,5,.82);font-size:11px;padding:5px 7px;border-radius:8px;text-align:center}.exercise h3{margin:0 0 4px}.machine-name{color:var(--lime);font-weight:800;font-size:13px}.exercise p{color:var(--muted);font-size:13px;margin:8px 0}.dose{display:flex;gap:8px;flex-wrap:wrap}.chip{border:1px solid var(--line);background:#101c16;border-radius:999px;padding:6px 9px;font-size:12px}.register-one{background:transparent;color:var(--lime);border:1px solid #72b91b;border-radius:12px;padding:10px 12px;font-weight:800;cursor:pointer}.swim{margin-top:16px;border:1px solid #23617b;background:#0d1d21;padding:18px;border-radius:18px}.tabsline{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}.cardgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.metric{background:var(--panel2);border:1px solid var(--line);padding:16px;border-radius:16px}.metric span{color:var(--muted);font-size:12px}.metric strong{display:block;font-size:28px;margin-top:8px}.form-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.form-grid label{display:flex;flex-direction:column;gap:7px;font-size:13px;font-weight:800}.form-grid input,.form-grid select,.form-grid textarea{width:100%;background:#0a1510;color:var(--text);border:1px solid var(--line);border-radius:12px;padding:12px}.wide{grid-column:1/-1}.conditional{display:contents}.history{display:grid;gap:10px}.histrow{display:grid;grid-template-columns:130px 1fr repeat(4,110px);gap:12px;align-items:center;border:1px solid var(--line);background:var(--panel2);border-radius:15px;padding:12px}.histrow small,.muted{color:var(--muted)}.projection-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}.tablewrap{overflow:auto}.table{width:100%;border-collapse:collapse}.table th,.table td{padding:11px;border-bottom:1px solid var(--line);text-align:left}.status{font-weight:900}.on{color:var(--lime)}.above{color:var(--cyan)}.below{color:var(--warn)}.flat{color:var(--bad)}.measure-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.photo-pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}.photo-box{min-height:200px;border:1px dashed #4d6a5a;border-radius:16px;display:grid;place-items:center;overflow:hidden}.photo-box img{max-width:100%;max-height:300px}.footer{color:var(--muted);text-align:center;padding:28px}.help{font-size:12px;color:var(--muted)}
@@ -151,7 +191,7 @@ body{background:#050a08;font-family:Inter,Segoe UI,Arial,sans-serif}.app{max-wid
 </div><div style="margin-top:18px"><button class="primary" type="submit">Guardar actividad</button></div></form></div>
 </section>
 <section id="view-history" class="view hidden"><div class="panel"><div class="sectionhead"><div><div class="eyebrow">HISTORIAL ACTIVO</div><h2>Actividades registradas</h2><p>Filtra, busca, edita o elimina registros.</p></div></div><div class="history-tools"><select id="historyType"><option value="">Todos</option><option>Fuerza</option><option>Natación</option><option>Cardio</option><option>Caminadora</option><option>Elíptica</option><option>Recuperación</option><option>Sauna</option></select><input id="historySearch" placeholder="Buscar ejercicio, máquina o detalle..."></div><div class="history" id="historyList"></div></div></section>
-<section id="view-body" class="view hidden"><div class="panel"><div class="sectionhead"><div><div class="eyebrow">EVOLUCIÓN CORPORAL</div><h2>Peso y medidas</h2><p>No se precargan valores corporales no confirmados.</p></div></div><form id="measureForm"><div class="measure-grid"><label>Fecha<input type="date" id="measureDate"></label><label>Peso (kg)<input type="number" id="bodyWeight" step="0.1"></label><label>Grasa corporal %<input type="number" id="bodyFat" step="0.1"></label><label>Cintura (cm)<input type="number" id="waist" step="0.1"></label><label>Pecho (cm)<input type="number" id="chest" step="0.1"></label><label>Cadera (cm)<input type="number" id="hips" step="0.1"></label><label>Brazo (cm)<input type="number" id="arm" step="0.1"></label><label>Muslo (cm)<input type="number" id="thigh" step="0.1"></label><label>Estatura (cm)<input type="number" id="heightCm" step="0.1"></label><label>Objetivo de peso (kg)<input type="number" id="targetWeight" step="0.1"></label></div><div style="margin-top:18px"><button class="primary" type="submit">Guardar medición</button></div></form><div class="tablewrap" style="margin-top:22px"><table class="table"><thead><tr><th>Fecha</th><th>Peso</th><th>IMC</th><th>Grasa</th><th>Cintura</th><th>Pecho</th><th>Cadera</th><th>Brazo</th><th>Muslo</th></tr></thead><tbody id="measureRows"></tbody></table></div></div></section>
+<section id="view-body" class="view hidden"><div class="panel"><div class="sectionhead"><div><div class="eyebrow">EVOLUCIÓN CORPORAL</div><h2>Peso y medidas</h2><p>Registra nuevas mediciones o edita la fecha y el peso de cualquier registro existente.</p></div></div><form id="measureForm"><input type="hidden" id="measureEditId"><div class="measure-grid"><label>Fecha<input type="date" id="measureDate" required></label><label>Peso (kg)<input type="number" id="bodyWeight" step="0.01" min="0"></label><label>Grasa corporal %<input type="number" id="bodyFat" step="0.1" min="0"></label><label>Cintura (cm)<input type="number" id="waist" step="0.1" min="0"></label><label>Pecho (cm)<input type="number" id="chest" step="0.1" min="0"></label><label>Cadera (cm)<input type="number" id="hips" step="0.1" min="0"></label><label>Brazo (cm)<input type="number" id="arm" step="0.1" min="0"></label><label>Muslo (cm)<input type="number" id="thigh" step="0.1" min="0"></label><label>Estatura (cm)<input type="number" id="heightCm" step="0.1" min="0"></label><label>Objetivo de peso (kg)<input type="number" id="targetWeight" step="0.1" min="0"></label></div><div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap"><button class="primary" id="measureSaveBtn" type="submit">Guardar medición</button><button class="ghost hidden" id="measureCancelBtn" type="button">Cancelar edición</button></div></form><div class="tablewrap" style="margin-top:22px"><table class="table"><thead><tr><th>Fecha</th><th>Peso</th><th>IMC</th><th>Grasa</th><th>Cintura</th><th>Pecho</th><th>Cadera</th><th>Brazo</th><th>Muslo</th><th>Acciones</th></tr></thead><tbody id="measureRows"></tbody></table></div></div></section>
 <section id="view-projection" class="view hidden"><div class="cardgrid" id="projectionMetrics"></div><div class="projection-grid"><div class="panel"><div class="sectionhead"><div><div class="eyebrow">FUERZA POR MÁQUINA</div><h2>Real vs. proyección</h2><p>Se compara la tendencia de cada ejercicio con una progresión orientativa.</p></div></div><div class="tablewrap"><table class="table"><thead><tr><th>Ejercicio</th><th>Primer peso</th><th>Último peso</th><th>Proyección 8 sem.</th><th>Estado</th></tr></thead><tbody id="strengthProjection"></tbody></table></div></div><div class="panel"><div class="sectionhead"><div><div class="eyebrow">CUERPO</div><h2>Proyección corporal</h2></div></div><div id="bodyProjection"></div></div></div></section>
 <section id="view-nutrition" class="view hidden"><div class="cardgrid" id="nutritionMetrics"></div><div class="panel"><div class="sectionhead"><div><div class="eyebrow">PLAN NUTRICIONAL</div><h2>Registro diario</h2><p>Controla calorías, macronutrientes y agua. Los objetivos son configurables.</p></div></div></div><form id="nutritionForm"><div class="form-grid"><label>Fecha<input type="date" id="nutritionDate"></label><label>Comida<select id="mealType"><option>Desayuno</option><option>Almuerzo</option><option>Cena</option><option>Merienda</option><option>Post-entreno</option></select></label><label>Alimento / plato<input id="foodName" required></label><label>Calorías<input type="number" id="foodCalories" min="0"></label><label>Proteína (g)<input type="number" id="foodProtein" min="0" step="0.1"></label><label>Carbohidratos (g)<input type="number" id="foodCarbs" min="0" step="0.1"></label><label>Grasas (g)<input type="number" id="foodFat" min="0" step="0.1"></label><label>Agua (ml)<input type="number" id="foodWater" min="0"></label></div><div style="margin-top:16px"><button class="primary" type="submit">Guardar alimento</button></div></form><div class="meal-list" id="mealList"></div></div></section>
 <section id="view-catalog" class="view hidden">
@@ -173,7 +213,7 @@ body{background:#050a08;font-family:Inter,Segoe UI,Arial,sans-serif}.app{max-wid
     </div><div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap;justify-content:space-between"><div style="display:flex;gap:10px;flex-wrap:wrap"><button class="primary" type="submit">Guardar ejercicio</button><button class="ghost" id="removeFromAllRoutines" type="button">Quitar de rutinas</button></div><button class="ghost" id="cancelCatalogEditBottom" type="button">Cancelar</button></div></form>
   </div></div>
 </section>
-</main><div class="footer">FitControl Pro v12.1 · Datos guardados localmente en este navegador</div>
+</main><div class="footer">FitControl Pro v12.2 · Datos guardados localmente en este navegador</div>
 </div>
 <script>
 const store={get:(k,d)=>{try{return JSON.parse(localStorage.getItem(k))??d}catch{return d}},set:(k,v)=>localStorage.setItem(k,JSON.stringify(v))};
@@ -308,8 +348,77 @@ function populateEquipment(){
 }
 function saveActivity(ev){ev.preventDefault();const type=activityType.value;const a={id:'a'+Date.now(),type,group:muscleGroup.value,exercise:exerciseSelect.value,equipment:equipmentSelect.value,date:performedAt.value||nowLocal(),sets:type==='Fuerza'?+sets.value:0,reps:type==='Fuerza'?+reps.value:0,weight:type==='Fuerza'?+weightKg.value:0,duration:type==='Cardio'?+duration.value:type==='Recuperación'||type==='Movilidad'?+recoveryDuration.value:0,distanceKm:+distanceKm.value||0,speed:+speed.value||0,incline:+incline.value||0,calories:+calories.value||0,heartRate:+heartRate.value||+swimHeartRate.value||0,distanceM:+swimDistance.value||0,pace:pace.value,swolf:+swolf.value||0,poolLength:+poolLength.value||0,laps:+laps.value||0,temperature:+temperature.value||0,recoveryScore:+recoveryScore.value||0,effort:+effort.value||0,notes:notes.value};activities=[a,...activities];store.set('fitcontrol_v8_activities',activities);const isToday=localDateKey(a.date)===localDateKey();showNotice(type==='Fuerza'&&isToday?'Ejercicio guardado. Se retiró de las sugerencias pendientes de hoy.':'Actividad guardada y añadida a la proyección.');if(type==='Fuerza'&&isToday){renderPlan();showView('plan')}else showView('history')}
 function renderHistory(){const h=document.getElementById('historyList');h.innerHTML=[...activities].sort((a,b)=>new Date(b.date)-new Date(a.date)).map(a=>`<article class="histrow"><div><small>${a.type}</small><strong style="display:block">${fmtDate(a.date)}</strong></div><div><strong>${a.exercise}</strong><div class="muted">${a.equipment}</div><small>${a.notes||''}</small></div><div><small>Series/reps</small><strong style="display:block">${a.sets?`${a.sets} × ${a.reps}`:'—'}</strong></div><div><small>Peso</small><strong style="display:block">${a.weight?`${a.weight} kg`:'—'}</strong></div><div><small>Distancia</small><strong style="display:block">${a.distanceM?`${a.distanceM} m`:a.distanceKm?`${a.distanceKm} km`:'—'}</strong></div><div><small>Duración</small><strong style="display:block">${a.duration?`${a.duration} min`:'—'}</strong></div></article>`).join('')}
-function saveMeasure(ev){ev.preventDefault();const m={id:'m'+Date.now(),date:measureDate.value,weight:+bodyWeight.value||0,fat:+bodyFat.value||0,waist:+waist.value||0,chest:+chest.value||0,hips:+hips.value||0,arm:+arm.value||0,thigh:+thigh.value||0,height:+heightCm.value||0,target:+targetWeight.value||0};measures=[m,...measures];store.set('fitcontrol_v8_measures',measures);showNotice('Medición corporal guardada.');renderMeasures()}
-function renderMeasures(){const rows=document.getElementById('measureRows');rows.innerHTML=[...measures].sort((a,b)=>new Date(b.date)-new Date(a.date)).map(m=>{const bmi=m.weight&&m.height?m.weight/((m.height/100)**2):0;return `<tr><td>${m.date}</td><td>${m.weight||'—'}</td><td>${bmi?bmi.toFixed(1):'—'}</td><td>${m.fat||'—'}</td><td>${m.waist||'—'}</td><td>${m.chest||'—'}</td><td>${m.hips||'—'}</td><td>${m.arm||'—'}</td><td>${m.thigh||'—'}</td></tr>`}).join('')||'<tr><td colspan="9">Aún no hay mediciones.</td></tr>'}
+function resetMeasureForm(){
+  document.getElementById('measureForm').reset();
+  document.getElementById('measureEditId').value='';
+  document.getElementById('measureDate').value=new Date().toISOString().slice(0,10);
+  document.getElementById('measureSaveBtn').textContent='Guardar medición';
+  document.getElementById('measureCancelBtn').classList.add('hidden');
+}
+function saveMeasure(ev){
+  ev.preventDefault();
+  const editId=document.getElementById('measureEditId').value;
+  const m={
+    id:editId||'m'+Date.now(),
+    date:document.getElementById('measureDate').value,
+    weight:+document.getElementById('bodyWeight').value||0,
+    fat:+document.getElementById('bodyFat').value||0,
+    waist:+document.getElementById('waist').value||0,
+    chest:+document.getElementById('chest').value||0,
+    hips:+document.getElementById('hips').value||0,
+    arm:+document.getElementById('arm').value||0,
+    thigh:+document.getElementById('thigh').value||0,
+    height:+document.getElementById('heightCm').value||0,
+    target:+document.getElementById('targetWeight').value||0
+  };
+  if(!m.date){showNotice('Selecciona una fecha para la medición.');return}
+  if(!m.weight&&!m.fat&&!m.waist&&!m.chest&&!m.hips&&!m.arm&&!m.thigh&&!m.height){showNotice('Ingresa al menos un dato corporal antes de guardar.');return}
+  if(editId){
+    measures=measures.map(item=>item.id===editId?{...item,...m}:item);
+  }else{
+    measures=[m,...measures];
+  }
+  store.set('fitcontrol_v8_measures',measures);
+  showNotice(editId?'Medición actualizada correctamente.':'Medición corporal guardada.');
+  resetMeasureForm();
+  renderMeasures();
+  renderProjection();
+}
+function editMeasure(id){
+  const m=measures.find(item=>item.id===id);
+  if(!m)return;
+  document.getElementById('measureEditId').value=m.id;
+  document.getElementById('measureDate').value=m.date||'';
+  document.getElementById('bodyWeight').value=m.weight||'';
+  document.getElementById('bodyFat').value=m.fat||'';
+  document.getElementById('waist').value=m.waist||'';
+  document.getElementById('chest').value=m.chest||'';
+  document.getElementById('hips').value=m.hips||'';
+  document.getElementById('arm').value=m.arm||'';
+  document.getElementById('thigh').value=m.thigh||'';
+  document.getElementById('heightCm').value=m.height||'';
+  document.getElementById('targetWeight').value=m.target||'';
+  document.getElementById('measureSaveBtn').textContent='Actualizar medición';
+  document.getElementById('measureCancelBtn').classList.remove('hidden');
+  document.getElementById('measureForm').scrollIntoView({behavior:'smooth',block:'start'});
+  document.getElementById('measureDate').focus();
+}
+function deleteMeasure(id){
+  if(!confirm('¿Deseas eliminar esta medición?'))return;
+  measures=measures.filter(item=>item.id!==id);
+  store.set('fitcontrol_v8_measures',measures);
+  if(document.getElementById('measureEditId').value===id)resetMeasureForm();
+  renderMeasures();
+  renderProjection();
+  showNotice('Medición eliminada.');
+}
+function renderMeasures(){
+  const rows=document.getElementById('measureRows');
+  rows.innerHTML=[...measures].sort((a,b)=>new Date(b.date)-new Date(a.date)).map(m=>{
+    const bmi=m.weight&&m.height?m.weight/((m.height/100)**2):0;
+    return `<tr><td>${m.date}</td><td>${m.weight||'—'}</td><td>${bmi?bmi.toFixed(1):'—'}</td><td>${m.fat||'—'}</td><td>${m.waist||'—'}</td><td>${m.chest||'—'}</td><td>${m.hips||'—'}</td><td>${m.arm||'—'}</td><td>${m.thigh||'—'}</td><td><div class="hist-actions"><button class="smallbtn" type="button" onclick="editMeasure('${m.id}')">Editar</button><button class="smallbtn danger" type="button" onclick="deleteMeasure('${m.id}')">Eliminar</button></div></td></tr>`
+  }).join('')||'<tr><td colspan="10">Aún no hay mediciones.</td></tr>'
+}
 function strengthStats(){const map={};[...activities].filter(a=>a.type==='Fuerza'&&a.weight>0).sort((a,b)=>new Date(a.date)-new Date(b.date)).forEach(a=>(map[a.exercise]??=[]).push(a));return map}
 function renderProjection(){const map=strengthStats(),weeks=8;let rows='';Object.entries(map).forEach(([name,arr])=>{const first=arr[0].weight,last=arr.at(-1).weight;const elapsed=Math.max(1,(new Date(arr.at(-1).date)-new Date(arr[0].date))/604800000);const actualRate=(last-first)/elapsed;const expectedRate=Math.max(.25,first*.01);const proj=Math.max(last,last+actualRate*weeks);let label='Sin cambio',cls='flat';if(arr.length<2){label='Datos insuficientes';cls='below'}else if(actualRate>expectedRate*1.2){label='Por encima';cls='above'}else if(actualRate>=expectedRate*.7){label='En línea';cls='on'}else if(actualRate>0){label='Por debajo';cls='below'}rows+=`<tr><td>${name}</td><td>${first} kg</td><td>${last} kg</td><td>${proj.toFixed(1)} kg</td><td class="status ${cls}">${label}</td></tr>`});document.getElementById('strengthProjection').innerHTML=rows||'<tr><td colspan="5">Se necesitan al menos registros con peso para calcular tendencia.</td></tr>';
 const total=activities.length,force=activities.filter(a=>a.type==='Fuerza').length,swims=activities.filter(a=>a.type==='Natación').length,days=activities.length?Math.max(1,(Date.now()-Math.min(...activities.map(a=>new Date(a.date))))/86400000):0;document.getElementById('projectionMetrics').innerHTML=`<div class="metric"><span>Historial</span><strong>${Math.round(days)}</strong><small>días desde el primer registro</small></div><div class="metric"><span>Sesiones</span><strong>${total}</strong><small>actividades</small></div><div class="metric"><span>Fuerza</span><strong>${force}</strong><small>registros</small></div><div class="metric"><span>Natación</span><strong>${swims}</strong><small>sesiones</small></div>`;
@@ -370,6 +479,6 @@ function removeCurrentFromRoutines(){
 }
 
 function exportData(){const blob=new Blob([JSON.stringify({version:12,activities,measures,nutrition,exerciseCatalog,plans},null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='fitcontrol-respaldo-v8.json';a.click();URL.revokeObjectURL(a.href)}
-document.getElementById('quickAdd').onclick=()=>showView('register');document.getElementById('openFullHistory').onclick=()=>showView('history');document.getElementById('altBtn').onclick=()=>{alt++;renderPlan();showNotice('Se generó una alternativa real cambiando el orden y la carga de referencia.')};document.getElementById('activityType').onchange=updateFormType;document.getElementById('muscleGroup').onchange=()=>{refreshExerciseSelect();populateEquipment()};document.getElementById('exerciseSelect').onchange=populateEquipment;document.getElementById('activityForm').onsubmit=saveActivity;document.getElementById('measureForm').onsubmit=saveMeasure;document.getElementById('exportBtn').onclick=exportData;document.getElementById('historyType').onchange=renderHistory;document.getElementById('historySearch').oninput=renderHistory;document.getElementById('nutritionForm').onsubmit=saveNutrition;document.getElementById('nutritionDate').onchange=renderNutrition;document.getElementById('newCatalogExercise').onclick=()=>openCatalogEditor();document.getElementById('cancelCatalogEdit').onclick=closeCatalogEditor;document.getElementById('cancelCatalogEditBottom').onclick=closeCatalogEditor;catalogEditorPanel.addEventListener('click',e=>{if(e.target===catalogEditorPanel)closeCatalogEditor()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!catalogEditorPanel.classList.contains('hidden'))closeCatalogEditor()});document.getElementById('catalogForm').onsubmit=saveCatalogExercise;document.getElementById('catalogSearch').oninput=renderCatalog;document.getElementById('catalogGroupFilter').onchange=renderCatalog;document.getElementById('catalogSort').onchange=renderCatalog;document.getElementById('removeFromAllRoutines').onclick=removeCurrentFromRoutines;document.getElementById('resetCatalog').onclick=()=>{if(confirm('¿Restaurar el catálogo original y las rutinas predeterminadas?')){plans=JSON.parse(JSON.stringify(defaultPlans));exerciseCatalog=seedCatalogFromPlans();persistCatalog();renderCatalog();renderPlan();updateFormType()}};document.getElementById('catalogImagePath').oninput=e=>{const src=e.target.value.trim();catalogPreview.classList.toggle('hidden',!src);catalogPreviewText.classList.toggle('hidden',!!src);if(src)catalogPreview.src=src};document.getElementById('catalogImageFile').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{catalogImageData=r.result;catalogPreview.src=r.result;catalogPreview.classList.remove('hidden');catalogPreviewText.classList.add('hidden')};r.readAsDataURL(f)};document.getElementById('performedAt').value=nowLocal();document.getElementById('measureDate').value=new Date().toISOString().slice(0,10);document.getElementById('nutritionDate').value=new Date().toISOString().slice(0,10);renderNav();renderPlan();updateFormType();
+document.getElementById('quickAdd').onclick=()=>showView('register');document.getElementById('openFullHistory').onclick=()=>showView('history');document.getElementById('altBtn').onclick=()=>{alt++;renderPlan();showNotice('Se generó una alternativa real cambiando el orden y la carga de referencia.')};document.getElementById('activityType').onchange=updateFormType;document.getElementById('muscleGroup').onchange=()=>{refreshExerciseSelect();populateEquipment()};document.getElementById('exerciseSelect').onchange=populateEquipment;document.getElementById('activityForm').onsubmit=saveActivity;document.getElementById('measureForm').onsubmit=saveMeasure;document.getElementById('measureCancelBtn').onclick=resetMeasureForm;document.getElementById('exportBtn').onclick=exportData;document.getElementById('historyType').onchange=renderHistory;document.getElementById('historySearch').oninput=renderHistory;document.getElementById('nutritionForm').onsubmit=saveNutrition;document.getElementById('nutritionDate').onchange=renderNutrition;document.getElementById('newCatalogExercise').onclick=()=>openCatalogEditor();document.getElementById('cancelCatalogEdit').onclick=closeCatalogEditor;document.getElementById('cancelCatalogEditBottom').onclick=closeCatalogEditor;catalogEditorPanel.addEventListener('click',e=>{if(e.target===catalogEditorPanel)closeCatalogEditor()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!catalogEditorPanel.classList.contains('hidden'))closeCatalogEditor()});document.getElementById('catalogForm').onsubmit=saveCatalogExercise;document.getElementById('catalogSearch').oninput=renderCatalog;document.getElementById('catalogGroupFilter').onchange=renderCatalog;document.getElementById('catalogSort').onchange=renderCatalog;document.getElementById('removeFromAllRoutines').onclick=removeCurrentFromRoutines;document.getElementById('resetCatalog').onclick=()=>{if(confirm('¿Restaurar el catálogo original y las rutinas predeterminadas?')){plans=JSON.parse(JSON.stringify(defaultPlans));exerciseCatalog=seedCatalogFromPlans();persistCatalog();renderCatalog();renderPlan();updateFormType()}};document.getElementById('catalogImagePath').oninput=e=>{const src=e.target.value.trim();catalogPreview.classList.toggle('hidden',!src);catalogPreviewText.classList.toggle('hidden',!!src);if(src)catalogPreview.src=src};document.getElementById('catalogImageFile').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{catalogImageData=r.result;catalogPreview.src=r.result;catalogPreview.classList.remove('hidden');catalogPreviewText.classList.add('hidden')};r.readAsDataURL(f)};document.getElementById('performedAt').value=nowLocal();document.getElementById('measureDate').value=new Date().toISOString().slice(0,10);document.getElementById('nutritionDate').value=new Date().toISOString().slice(0,10);renderNav();renderPlan();updateFormType();
 </script>
 </body></html>
