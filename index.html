@@ -18,11 +18,53 @@ body{background:#050a08;font-family:Inter,Segoe UI,Arial,sans-serif}.app{max-wid
 
 .history-tools{display:grid;grid-template-columns:180px 1fr;gap:10px;margin-bottom:14px}.hist-actions{display:flex;gap:7px;flex-wrap:wrap}.smallbtn{background:#14231b;color:var(--text);border:1px solid var(--line);border-radius:9px;padding:7px 9px;cursor:pointer}.smallbtn.danger{color:#ff8f8f;border-color:#613333}.nutrition-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.progressbar{height:10px;background:#26352e;border-radius:99px;overflow:hidden;margin-top:8px}.progressbar i{display:block;height:100%;background:var(--lime)}.meal-list{display:grid;gap:10px;margin-top:16px}.meal{display:grid;grid-template-columns:140px 1fr repeat(5,90px) auto;gap:10px;align-items:center;padding:12px;border:1px solid var(--line);border-radius:12px;background:var(--panel2)}
 @media(max-width:1000px){.meal{grid-template-columns:1fr 1fr}.nutrition-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:650px){.history-tools,.nutrition-grid,.meal{grid-template-columns:1fr}}
+
+.mobile-header,.menu-backdrop{display:none}
+@media(max-width:800px){
+  body.menu-open{overflow:hidden}
+  .mobile-header{display:flex;position:sticky;top:0;z-index:40;height:64px;align-items:center;justify-content:space-between;padding:10px 14px;background:rgba(7,13,11,.97);backdrop-filter:blur(12px);border-bottom:1px solid #1d2a24}
+  .mobile-brand{display:flex;align-items:center;gap:10px;font-size:19px;font-weight:900}
+  .mobile-logo{display:grid;place-items:center;width:40px;height:40px;border-radius:11px;background:linear-gradient(145deg,#b8ff47,#7ed51a);color:#07100c;font-weight:950;font-style:italic}
+  .mobile-brand b{color:var(--lime)}
+  .menu-toggle,.menu-close{display:grid;place-items:center;width:44px;height:44px;border:1px solid #31513e;border-radius:12px;background:#101b16;color:var(--text);font-size:24px;cursor:pointer}
+  .top{position:fixed;left:0;top:0;bottom:0;width:min(84vw,330px);height:100dvh;z-index:60;display:flex;flex-direction:column;flex-wrap:nowrap;align-items:stretch;overflow-y:auto;border-right:1px solid #2a3b32;border-bottom:0;padding:18px 14px;transform:translateX(-105%);transition:transform .25s ease;box-shadow:18px 0 50px rgba(0,0,0,.45)}
+  .top.open{transform:translateX(0)}
+  .top .brand{display:flex;justify-content:space-between;align-items:center;padding:0 2px 16px;border-bottom:1px solid #1c2923}
+  .top .brand::after{content:'×';display:grid;place-items:center;width:38px;height:38px;border:1px solid #31513e;border-radius:10px;color:var(--text);font-size:27px;line-height:1;cursor:pointer}
+  .top nav{display:flex;flex-direction:column;overflow:visible;gap:7px;width:100%}
+  .top .navbtn{width:100%;font-size:16px;padding:14px;text-align:left}
+  #quickAdd{width:100%;margin:4px 0 0}
+  .profile-card{display:block;margin-top:auto}
+  .menu-backdrop{display:block;position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.58);opacity:0;visibility:hidden;transition:opacity .25s ease,visibility .25s ease}
+  .menu-backdrop.show{opacity:1;visibility:visible}
+  .app{padding:0 12px 24px}
+  .hero{margin:0 -12px 14px;padding:18px 16px}
+  .days{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px}
+  .daybtn{min-width:170px;scroll-snap-align:start}
+  .exercise-grid{grid-template-columns:1fr}
+  .exercise{grid-template-columns:125px 1fr;display:grid;padding:10px;gap:12px}
+  .machine-art{height:120px;border-radius:12px;border:1px solid #26352e}
+  .exercise-content{padding:0;min-height:0}
+  .register-one{grid-column:1/-1;margin:0;width:100%}
+  .swim{grid-template-columns:1fr}
+  .cardgrid,.form-grid,.measure-grid,.photo-pair,.nutrition-grid,.meal{grid-template-columns:1fr}
+  .sectionhead{align-items:flex-start;flex-direction:column}
+  .panel{padding:12px}
+  .histrow{grid-template-columns:1fr}
+  .footer{margin-left:0}
+}
+@media(max-width:480px){
+  .exercise{grid-template-columns:1fr}
+  .machine-art{height:190px}
+  .exercise-content{padding:2px 2px 0}
+  .hero h1{font-size:27px}
+  .sectionhead h2{font-size:22px}
+}
 </style>
 </head>
 <body>
 <div class="app">
-<header class="top"><div class="brand"><span class="logo">F</span><span>FitControl <b>Pro</b></span></div><nav id="nav"></nav><button class="primary" id="quickAdd">+ Registrar</button><div class="profile-card"><strong>Renato</strong><small>Objetivo: 78 kg</small><div style="margin-top:8px;color:var(--lime)">Seguimiento activo</div></div></header>
+<div class="mobile-header"><div class="mobile-brand"><span class="mobile-logo">F</span><span>FitControl <b>Pro</b></span></div><button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">☰</button></div><div class="menu-backdrop" id="menuBackdrop"></div><header class="top" id="sideMenu"><div class="brand"><span class="logo">F</span><span>FitControl <b>Pro</b></span></div><nav id="nav"></nav><button class="primary" id="quickAdd">+ Registrar</button><div class="profile-card"><strong>Renato</strong><small>Objetivo: 78 kg</small><div style="margin-top:8px;color:var(--lime)">Seguimiento activo</div></div></header>
 <div id="notice" class="notice hidden"></div>
 <section class="hero"><div><div class="eyebrow">SEGUIMIENTO PERSONALIZADO</div><h1 id="pageTitle">Plan semanal</h1><p id="pageSub">Ocho ejercicios variados por día, máquinas específicas y registro de progreso.</p></div><button class="ghost" id="exportBtn">Exportar respaldo</button></section>
 <main>
@@ -70,6 +112,21 @@ const plans=[
 {day:'Sábado',focus:'Natación principal',group:'Cardio',swim:'Sesión principal',ex:[]},{day:'Domingo',focus:'Descanso total',group:'Recuperación',swim:'Sin natación',ex:[]}
 ];
 const navItems=[['plan','Plan semanal'],['register','Registrar'],['history','Historial'],['body','Peso y medidas'],['projection','Proyección'],['nutrition','Nutrición']];
+
+const sideMenu=document.getElementById('sideMenu');
+const menuToggle=document.getElementById('menuToggle');
+const menuBackdrop=document.getElementById('menuBackdrop');
+function setMenu(open){
+  sideMenu?.classList.toggle('open',open);
+  menuBackdrop?.classList.toggle('show',open);
+  document.body.classList.toggle('menu-open',open);
+  menuToggle?.setAttribute('aria-expanded',String(open));
+}
+menuToggle?.addEventListener('click',()=>setMenu(!sideMenu.classList.contains('open')));
+menuBackdrop?.addEventListener('click',()=>setMenu(false));
+sideMenu?.querySelector('.brand')?.addEventListener('click',e=>{if(innerWidth<=800 && e.offsetX>e.currentTarget.clientWidth-55)setMenu(false)});
+window.addEventListener('resize',()=>{if(innerWidth>800)setMenu(false)});
+
 const activityOptions={
 Fuerza:{groups:Object.keys(machineCatalog),exercises:['Extensión de piernas','Prensa sentada','Curl femoral sentado','Abducción de cadera','Aducción de cadera','Patada de glúteo','Elevación de talones','Hack squat','Press de pecho','Apertura de pecho','Press inclinado','Cruce de poleas','Fondos asistidos','Jalón al pecho','Remo sentado','Pullover','Press de hombros','Crunch abdominal'],equipment:[]},
 Cardio:{groups:['Cardio'],exercises:['Caminata','Carrera','Bicicleta','Elíptica','Escaladora','Remo ergométrico'],equipment:['Caminadora','Bicicleta estática','Bicicleta reclinada','Elíptica','Escaladora','Remo ergométrico']},
@@ -93,7 +150,7 @@ else if(n.includes('pantorrillas'))body='<rect x="58" y="44" width="44" height="
 else if(n.includes('hack'))body='<rect x="54" y="28" width="12" height="80" transform="rotate(-15 54 28)"/><rect x="96" y="28" width="12" height="80" transform="rotate(-15 96 28)"/><rect x="62" y="50" width="42" height="18" transform="rotate(-15 62 50)"/>';
 else body='<rect x="48" y="45" width="64" height="16" rx="6"/><rect x="52" y="61" width="8" height="42"/><rect x="100" y="61" width="8" height="42"/><circle cx="32" cy="74" r="13"/><circle cx="128" cy="74" r="13"/>';
 return `<svg viewBox="0 0 160 120" aria-hidden="true"><g fill="none" stroke="#a8ff2e" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">${body}</g><g fill="#15251c" stroke="#6b8e79" stroke-width="2"><rect x="18" y="108" width="124" height="5" rx="2"/></g></svg>`}
-function renderNav(active='plan'){const nav=document.getElementById('nav');nav.innerHTML=navItems.map(([id,l])=>`<button class="navbtn ${id===active?'active':''}" data-view="${id}">${l}</button>`).join('');nav.querySelectorAll('button').forEach(b=>b.onclick=()=>showView(b.dataset.view))}
+function renderNav(active='plan'){const nav=document.getElementById('nav');nav.innerHTML=navItems.map(([id,l])=>`<button class="navbtn ${id===active?'active':''}" data-view="${id}">${l}</button>`).join('');nav.querySelectorAll('button').forEach(b=>b.onclick=()=>{showView(b.dataset.view);if(innerWidth<=800)setMenu(false)})}
 function showView(v){document.querySelectorAll('.view').forEach(x=>x.classList.add('hidden'));document.getElementById('view-'+v).classList.remove('hidden');renderNav(v);const titles={plan:['Plan semanal','Ocho ejercicios variados por día con máquina específica.'],register:['Registrar actividad','Campos adaptados a cada tipo de ejercicio.'],history:['Historial','Consulta los ejercicios y máquinas utilizadas.'],body:['Peso y medidas','Registra evolución corporal sin inventar datos.'],projection:['Proyección','Compara evolución real con tendencia esperada.'],nutrition:['Nutrición','Registra alimentos, calorías, macros y agua.']};document.getElementById('pageTitle').textContent=titles[v][0];document.getElementById('pageSub').textContent=titles[v][1];if(v==='history')renderHistory();if(v==='body')renderMeasures();if(v==='projection')renderProjection();if(v==='nutrition')renderNutrition()}
 function renderDays(){const c=document.getElementById('dayTabs');c.innerHTML=plans.map((p,i)=>`<button class="daybtn ${i===selectedDay?'active':''}" data-i="${i}"><small>DÍA ${i+1}</small><strong>${p.day}</strong><span>${p.focus}</span></button>`).join('');c.querySelectorAll('button').forEach(b=>b.onclick=()=>{selectedDay=+b.dataset.i;alt=0;renderPlan()})}
 function historyWeight(ex){const rows=activities.filter(a=>a.type==='Fuerza'&&a.exercise===ex&&a.weight>0).sort((a,b)=>new Date(b.date)-new Date(a.date));return rows[0]?.weight}
