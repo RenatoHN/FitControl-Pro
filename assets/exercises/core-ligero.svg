@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" role="img" aria-label="Core ligero con Plancha">
-<defs><linearGradient id="bg" x1="0" x2="1"><stop stop-color="#eff6ff"/><stop offset="1" stop-color="#eef2ff"/></linearGradient></defs>
-<rect width="600" height="360" rx="28" fill="url(#bg)"/>
-<circle cx="505" cy="65" r="75" fill="#dbeafe" opacity=".7"/>
-<g><path d="M145 238l310-22 30 48-310 22z" fill="#93c5fd"/><path d="M145 238l30 48" stroke="#1e3a8a" stroke-width="5"/></g>
-<g fill="none" stroke="#0f172a" stroke-width="9" stroke-linecap="round"><circle cx="245" cy="150" r="24" fill="#fde68a"/><path d="M268 166l105 38 95 3M330 189l-62 58M430 206l50 48"/></g>
-<rect x="22" y="292" width="556" height="48" rx="16" fill="#fff" opacity=".92"/>
-<text x="42" y="322" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#0f172a">Core ligero</text>
-</svg>

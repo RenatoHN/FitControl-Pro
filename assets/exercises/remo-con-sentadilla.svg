@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" role="img" aria-label="Remo con sentadilla con Banda elástica">
-<defs><linearGradient id="bg" x1="0" x2="1"><stop stop-color="#eff6ff"/><stop offset="1" stop-color="#eef2ff"/></linearGradient></defs>
-<rect width="600" height="360" rx="28" fill="url(#bg)"/>
-<circle cx="505" cy="65" r="75" fill="#dbeafe" opacity=".7"/>
-<g fill="none" stroke="#2563eb" stroke-width="12" stroke-linecap="round"><path d="M190 235c70-120 180-120 250 0"/><path d="M190 235c70 45 180 45 250 0"/></g>
-<g fill="none" stroke="#0f172a" stroke-width="9" stroke-linecap="round"><circle cx="300" cy="95" r="24" fill="#fde68a"/><path d="M300 120l5 92M305 155l-70 48M305 155l70 30M305 212l-70 75M305 212l95 55"/></g>
-<rect x="22" y="292" width="556" height="48" rx="16" fill="#fff" opacity=".92"/>
-<text x="42" y="322" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#0f172a">Remo con sentadilla</text>
-</svg>

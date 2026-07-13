@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" role="img" aria-label="Pájaros con Mancuernas">
-<defs><linearGradient id="bg" x1="0" x2="1"><stop stop-color="#eff6ff"/><stop offset="1" stop-color="#eef2ff"/></linearGradient></defs>
-<rect width="600" height="360" rx="28" fill="url(#bg)"/>
-<circle cx="505" cy="65" r="75" fill="#dbeafe" opacity=".7"/>
-<g stroke="#1e3a8a" stroke-width="7" stroke-linecap="round"><path d="M220 170h160"/><path d="M230 140v60M260 130v80M340 130v80M370 140v60"/></g>
-<g fill="none" stroke="#0f172a" stroke-width="9" stroke-linecap="round"><circle cx="300" cy="100" r="24" fill="#fde68a"/><path d="M300 124v95M300 158l-92-48M300 158l92-48M300 219l-50 72M300 219l50 72"/><path d="M205 125l3-42M395 125l-3-42" stroke="#2563eb"/></g>
-<rect x="22" y="292" width="556" height="48" rx="16" fill="#fff" opacity=".92"/>
-<text x="42" y="322" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#0f172a">Pájaros</text>
-</svg>
