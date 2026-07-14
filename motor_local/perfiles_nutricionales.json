@@ -1,0 +1,58 @@
+{
+  "vegetables": {
+    "label": "Ensalada o vegetales",
+    "kcal_100g": 45,
+    "protein_100g": 2.2,
+    "carbs_100g": 8.0,
+    "fat_100g": 0.8,
+    "base_grams": 280
+  },
+  "carbohydrate": {
+    "label": "Cereal, pasta o tubérculo",
+    "kcal_100g": 145,
+    "protein_100g": 3.5,
+    "carbs_100g": 30.0,
+    "fat_100g": 1.2,
+    "base_grams": 240
+  },
+  "protein": {
+    "label": "Proteína principal",
+    "kcal_100g": 205,
+    "protein_100g": 26.0,
+    "carbs_100g": 2.0,
+    "fat_100g": 10.0,
+    "base_grams": 210
+  },
+  "mixed": {
+    "label": "Plato mixto",
+    "kcal_100g": 155,
+    "protein_100g": 10.0,
+    "carbs_100g": 19.0,
+    "fat_100g": 5.5,
+    "base_grams": 340
+  },
+  "soup": {
+    "label": "Sopa o guiso",
+    "kcal_100g": 85,
+    "protein_100g": 5.0,
+    "carbs_100g": 10.0,
+    "fat_100g": 2.8,
+    "base_grams": 380
+  },
+  "fruit": {
+    "label": "Fruta",
+    "kcal_100g": 65,
+    "protein_100g": 0.8,
+    "carbs_100g": 16.0,
+    "fat_100g": 0.3,
+    "base_grams": 240
+  },
+  "dessert": {
+    "label": "Postre o panificado",
+    "kcal_100g": 260,
+    "protein_100g": 4.5,
+    "carbs_100g": 38.0,
+    "fat_100g": 10.0,
+    "base_grams": 150
+  }
+}
