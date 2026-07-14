@@ -1,8 +1,0 @@
-FitControl Pro v11 estable
-
-1. Descomprima toda la carpeta.
-2. Abra index.html o ejecute INICIAR-FITCONTROL.bat.
-3. No elimine la carpeta assets.
-4. Para hosting, suba todo el contenido.
-
-Incluye historial precargado, nutrición, peso/medidas, proyección, edición/eliminación e imágenes realistas por máquina.
