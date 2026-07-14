@@ -1,0 +1,21 @@
+FITCONTROL PRO V14 — SIN BASE DE DATOS
+
+ALMACENAMIENTO LOCAL
+- El navegador guarda una copia en localStorage.
+- En Edge/Chrome sobre HTTPS, pulse “JSON local” > “Vincular archivo”.
+- Seleccione o cree fitcontrol-data.json. Cada cambio se escribirá también en ese archivo.
+- Importar/Exportar JSON funciona en navegadores sin acceso directo a archivos.
+
+SINCRONIZACIÓN ENTRE DISPOSITIVOS MEDIANTE GITHUB
+1. Cree preferiblemente un repositorio PRIVADO para los datos.
+2. Cree un token fine-grained limitado únicamente a ese repositorio.
+3. Conceda Repository permissions > Contents > Read and write.
+4. En el sitio pulse “JSON local”.
+5. Complete usuario, repositorio, rama y ruta: data/fitcontrol-data.json.
+6. Pegue el token y pulse “Cargar y combinar” o “Guardar en GitHub”.
+7. En otro dispositivo complete los mismos datos y pulse “Cargar y combinar”.
+
+SEGURIDAD
+- No pegue el token en index.html ni en ningún archivo del repositorio.
+- El token se mantiene solo en sessionStorage y se borra al cerrar la sesión del navegador.
+- Si el repositorio es público, el JSON será visible públicamente.

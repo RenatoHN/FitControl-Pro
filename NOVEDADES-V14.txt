@@ -1,0 +1,12 @@
+FITCONTROL PRO V14 — CAMBIOS PRINCIPALES
+
+- Registrada la rutina completa de piernas del 13 de julio de 2026: 9 ejercicios de fuerza.
+- Registrada la sesión de natación de 1,200 m del 13 de julio de 2026 con duración, estilos, calorías, ritmo, frecuencia cardíaca, esfuerzo y SWOLF.
+- Persistencia inmediata en localStorage.
+- Vinculación opcional a un archivo JSON local con guardado automático en Edge/Chrome.
+- Importación y exportación manual de respaldos JSON.
+- Sincronización opcional entre dispositivos mediante un archivo JSON en GitHub, sin base de datos.
+- Token de GitHub conservado únicamente durante la sesión del navegador.
+- Historial con filtros, búsqueda, edición y eliminación.
+- Migración automática: los nuevos registros se incorporan aunque el navegador ya tenga datos de versiones anteriores.
+- Formulario de natación ampliado para no perder métricas importantes.

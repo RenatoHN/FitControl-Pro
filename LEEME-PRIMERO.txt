@@ -1,0 +1,23 @@
+FITCONTROL PRO V16 — JSON, GITHUB Y ANÁLISIS NUTRICIONAL LOCAL
+
+DATOS INCLUIDOS
+1. La rutina de piernas y natación del 13 de julio de 2026 permanece registrada.
+2. El sitio conserva copia inmediata en localStorage y permite importar/exportar JSON.
+3. “JSON local” permite vincular un archivo .json y la sincronización opcional con GitHub.
+
+INSTALACIÓN DEL MOTOR LOCAL (UNA SOLA VEZ)
+4. Instale Python 3.11 o posterior.
+5. Ejecute INSTALAR-MOTOR-LOCAL.bat. Este paso descarga únicamente OpenCV, Pillow y NumPy.
+6. Después ejecute INICIAR-FITCONTROL-LOCAL.bat. Se abrirá http://127.0.0.1:8000/index.html.
+
+ANÁLISIS DE UNA FOTO
+7. Entre en Nutrición, tome o elija la fotografía y complete diámetro, porción y preparación.
+8. Pulse “Comprobar motor local” y después “Analizar con Python”.
+9. Revise y corrija tipo de plato, calorías, proteína, carbohidratos y grasa antes de guardar.
+
+PRIVACIDAD Y LIMITACIONES
+- No utiliza OpenAI, Gemini, servicios de pago, claves, modelos de IA ni conexión a una API externa.
+- El análisis ocurre en la computadora que ejecuta Python; la fotografía no se sube a internet ni se guarda en el JSON.
+- OpenCV usa segmentación por color y forma. Una sola foto no puede medir con exactitud gramos, aceite o ingredientes ocultos.
+- GitHub Pages por sí solo no ejecuta Python. Desde GitHub Pages puede seguir registrando manualmente; para analizar fotos debe estar encendido el motor local.
+- Para usarlo desde otro dispositivo de la misma red, abra http://IP-DE-LA-COMPUTADORA:8000. Use únicamente una red de confianza.

@@ -1,0 +1,9 @@
+FITCONTROL PRO V16
+
+- Se eliminó completamente OpenAI y cualquier API de IA.
+- Se agregó un motor Python local con OpenCV clásico, Pillow y reglas nutricionales.
+- Detecta aproximadamente el plato, cobertura y grupos de color.
+- Sugiere tipo de plato y estima macros con perfiles nutricionales editables.
+- Incluye visualización del área analizada.
+- No sube ni guarda fotografías.
+- Los resultados son orientativos y editables.
