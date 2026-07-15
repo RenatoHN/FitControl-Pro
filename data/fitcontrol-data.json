@@ -1,6 +1,6 @@
 {
   "version": 15,
-  "updatedAt": "2026-07-14T08:00:00-06:00",
+  "updatedAt": "2026-07-15T16:08:12.000Z",
   "activities": [
     {
       "id": "workout-20260713-legpress-seated",
@@ -195,7 +195,7 @@
       "date": "2026-07-10T07:10",
       "sets": 4,
       "reps": 15,
-      "weight": 15.0,
+      "weight": 15,
       "duration": 0,
       "distanceKm": 0,
       "calories": 0,
@@ -211,7 +211,7 @@
       "date": "2026-07-10T07:00",
       "sets": 4,
       "reps": 8,
-      "weight": 20.0,
+      "weight": 20,
       "duration": 0,
       "distanceKm": 0,
       "calories": 0,
@@ -227,7 +227,7 @@
       "date": "2026-07-10T06:45",
       "sets": 4,
       "reps": 15,
-      "weight": 0.0,
+      "weight": 0,
       "duration": 0,
       "distanceKm": 0,
       "calories": 0,
@@ -243,10 +243,10 @@
       "date": "2026-07-10T06:38",
       "sets": 0,
       "reps": 0,
-      "weight": 0.0,
+      "weight": 0,
       "duration": 17.23,
       "distanceKm": 0.65,
-      "calories": 165.0,
+      "calories": 165,
       "effort": 0,
       "notes": "Registro histórico proporcionado por Renato."
     },
@@ -259,7 +259,7 @@
       "date": "2026-07-10T06:30",
       "sets": 4,
       "reps": 10,
-      "weight": 20.0,
+      "weight": 20,
       "duration": 0,
       "distanceKm": 0,
       "calories": 0,
@@ -275,7 +275,7 @@
       "date": "2026-07-10T06:15",
       "sets": 4,
       "reps": 15,
-      "weight": 0.0,
+      "weight": 0,
       "duration": 0,
       "distanceKm": 0,
       "calories": 0,
@@ -291,7 +291,7 @@
       "date": "2026-07-10T06:00",
       "sets": 4,
       "reps": 15,
-      "weight": 10.0,
+      "weight": 10,
       "duration": 0,
       "distanceKm": 0,
       "calories": 0,
@@ -323,7 +323,7 @@
       "date": "2026-07-09T08:50",
       "sets": 4,
       "reps": 20,
-      "weight": 0.0,
+      "weight": 0,
       "duration": 0,
       "distanceKm": 0,
       "calories": 0,
@@ -339,7 +339,7 @@
       "date": "2026-07-09T08:35",
       "sets": 4,
       "reps": 20,
-      "weight": 0.0,
+      "weight": 0,
       "duration": 0,
       "distanceKm": 0,
       "calories": 0,
@@ -355,7 +355,7 @@
       "date": "2026-07-09T08:20",
       "sets": 4,
       "reps": 15,
-      "weight": 0.0,
+      "weight": 0,
       "duration": 0,
       "distanceKm": 0,
       "calories": 0,
@@ -387,10 +387,10 @@
       "date": "2026-07-09T07:00",
       "sets": 0,
       "reps": 0,
-      "weight": 0.0,
-      "duration": 60.0,
-      "distanceKm": 0.0,
-      "calories": 0.0,
+      "weight": 0,
+      "duration": 60,
+      "distanceKm": 0,
+      "calories": 0,
       "effort": 0,
       "notes": "Registro histórico proporcionado por Renato."
     },
@@ -403,7 +403,7 @@
       "date": "2026-07-08T08:25",
       "sets": 3,
       "reps": 21,
-      "weight": 10.0,
+      "weight": 10,
       "duration": 0,
       "distanceKm": 0,
       "calories": 0,
@@ -419,7 +419,7 @@
       "date": "2026-07-08T08:10",
       "sets": 3,
       "reps": 15,
-      "weight": 5.0,
+      "weight": 5,
       "duration": 0,
       "distanceKm": 0,
       "calories": 0,
@@ -435,7 +435,7 @@
       "date": "2026-07-08T08:00",
       "sets": 3,
       "reps": 15,
-      "weight": 5.0,
+      "weight": 5,
       "duration": 0,
       "distanceKm": 0,
       "calories": 0,
@@ -451,7 +451,7 @@
       "date": "2026-07-08T07:45",
       "sets": 3,
       "reps": 15,
-      "weight": 0.0,
+      "weight": 0,
       "duration": 0,
       "distanceKm": 0,
       "calories": 0,
@@ -467,7 +467,7 @@
       "date": "2026-07-08T07:30",
       "sets": 4,
       "reps": 15,
-      "weight": 0.0,
+      "weight": 0,
       "duration": 0,
       "distanceKm": 0,
       "calories": 0,
@@ -483,7 +483,7 @@
       "date": "2026-07-08T07:15",
       "sets": 3,
       "reps": 15,
-      "weight": 0.0,
+      "weight": 0,
       "duration": 0,
       "distanceKm": 0,
       "calories": 0,
@@ -499,7 +499,7 @@
       "date": "2026-07-08T07:00",
       "sets": 4,
       "reps": 15,
-      "weight": 0.0,
+      "weight": 0,
       "duration": 0,
       "distanceKm": 0,
       "calories": 0,
@@ -515,7 +515,7 @@
       "date": "2026-07-07T13:30",
       "sets": 3,
       "reps": 10,
-      "weight": 5.0,
+      "weight": 5,
       "duration": 0,
       "distanceKm": 0,
       "calories": 0,
@@ -531,7 +531,7 @@
       "date": "2026-07-07T13:15",
       "sets": 4,
       "reps": 15,
-      "weight": 10.0,
+      "weight": 10,
       "duration": 0,
       "distanceKm": 0,
       "calories": 0,
@@ -547,7 +547,7 @@
       "date": "2026-07-07T13:00",
       "sets": 4,
       "reps": 15,
-      "weight": 0.0,
+      "weight": 0,
       "duration": 0,
       "distanceKm": 0,
       "calories": 0,
@@ -563,7 +563,7 @@
       "date": "2026-07-07T12:45",
       "sets": 4,
       "reps": 10,
-      "weight": 0.0,
+      "weight": 0,
       "duration": 0,
       "distanceKm": 0,
       "calories": 0,
@@ -579,7 +579,7 @@
       "date": "2026-07-07T12:30",
       "sets": 4,
       "reps": 10,
-      "weight": 0.0,
+      "weight": 0,
       "duration": 0,
       "distanceKm": 0,
       "calories": 0,
@@ -595,7 +595,7 @@
       "date": "2026-07-07T12:15",
       "sets": 4,
       "reps": 15,
-      "weight": 20.0,
+      "weight": 20,
       "duration": 0,
       "distanceKm": 0,
       "calories": 0,
@@ -611,7 +611,7 @@
       "date": "2026-07-07T12:00",
       "sets": 4,
       "reps": 10,
-      "weight": 0.0,
+      "weight": 0,
       "duration": 0,
       "distanceKm": 0,
       "calories": 0,
@@ -627,10 +627,10 @@
       "date": "2026-07-07T11:05",
       "sets": 0,
       "reps": 0,
-      "weight": 0.0,
+      "weight": 0,
       "duration": 23.98,
       "distanceKm": 0.7,
-      "calories": 189.0,
+      "calories": 189,
       "effort": 0,
       "notes": "Registro histórico proporcionado por Renato."
     },
@@ -643,10 +643,10 @@
       "date": "2026-07-06T18:00",
       "sets": 0,
       "reps": 0,
-      "weight": 0.0,
+      "weight": 0,
       "duration": 17.57,
       "distanceKm": 0.7,
-      "calories": 144.0,
+      "calories": 144,
       "effort": 0,
       "notes": "Registro histórico proporcionado por Renato."
     },
@@ -659,10 +659,10 @@
       "date": "2026-07-06T09:00",
       "sets": 0,
       "reps": 0,
-      "weight": 0.0,
+      "weight": 0,
       "duration": 12.88,
-      "distanceKm": 0.0,
-      "calories": 127.0,
+      "distanceKm": 0,
+      "calories": 127,
       "effort": 0,
       "notes": "Registro histórico proporcionado por Renato."
     },
@@ -675,7 +675,7 @@
       "date": "2026-07-06T08:35",
       "sets": 4,
       "reps": 20,
-      "weight": 0.0,
+      "weight": 0,
       "duration": 0,
       "distanceKm": 0,
       "calories": 0,
@@ -691,7 +691,7 @@
       "date": "2026-07-06T08:25",
       "sets": 4,
       "reps": 20,
-      "weight": 0.0,
+      "weight": 0,
       "duration": 0,
       "distanceKm": 0,
       "calories": 0,
@@ -723,7 +723,7 @@
       "date": "2026-07-06T08:05",
       "sets": 3,
       "reps": 20,
-      "weight": 0.0,
+      "weight": 0,
       "duration": 0,
       "distanceKm": 0,
       "calories": 0,
@@ -739,7 +739,7 @@
       "date": "2026-07-06T07:50",
       "sets": 4,
       "reps": 15,
-      "weight": 0.0,
+      "weight": 0,
       "duration": 0,
       "distanceKm": 0,
       "calories": 0,
@@ -771,7 +771,7 @@
       "date": "2026-07-06T07:25",
       "sets": 1,
       "reps": 20,
-      "weight": 20.0,
+      "weight": 20,
       "duration": 0,
       "distanceKm": 0,
       "calories": 0,
@@ -803,7 +803,7 @@
       "date": "2026-07-06T07:00",
       "sets": 1,
       "reps": 20,
-      "weight": 10.0,
+      "weight": 10,
       "duration": 0,
       "distanceKm": 0,
       "calories": 0,
@@ -819,10 +819,10 @@
       "date": "2026-07-01T18:00",
       "sets": 0,
       "reps": 0,
-      "weight": 0.0,
+      "weight": 0,
       "duration": 16.02,
       "distanceKm": 0.65,
-      "calories": 159.0,
+      "calories": 159,
       "effort": 0,
       "notes": "Registro histórico proporcionado por Renato."
     },
@@ -835,10 +835,10 @@
       "date": "2026-07-01T08:45",
       "sets": 0,
       "reps": 0,
-      "weight": 0.0,
+      "weight": 0,
       "duration": 12.43,
       "distanceKm": 0.945,
-      "calories": 106.0,
+      "calories": 106,
       "effort": 0,
       "notes": "Registro histórico proporcionado por Renato."
     },
@@ -851,7 +851,7 @@
       "date": "2026-07-01T08:30",
       "sets": 4,
       "reps": 15,
-      "weight": 0.0,
+      "weight": 0,
       "duration": 0,
       "distanceKm": 0,
       "calories": 0,
@@ -883,7 +883,7 @@
       "date": "2026-07-01T08:00",
       "sets": 4,
       "reps": 10,
-      "weight": 0.0,
+      "weight": 0,
       "duration": 0,
       "distanceKm": 0,
       "calories": 0,
@@ -915,7 +915,7 @@
       "date": "2026-07-01T07:30",
       "sets": 4,
       "reps": 10,
-      "weight": 10.0,
+      "weight": 10,
       "duration": 0,
       "distanceKm": 0,
       "calories": 0,
@@ -931,7 +931,7 @@
       "date": "2026-07-01T07:15",
       "sets": 4,
       "reps": 15,
-      "weight": 15.0,
+      "weight": 15,
       "duration": 0,
       "distanceKm": 0,
       "calories": 0,
@@ -947,7 +947,7 @@
       "date": "2026-07-01T07:00",
       "sets": 4,
       "reps": 15,
-      "weight": 15.0,
+      "weight": 15,
       "duration": 0,
       "distanceKm": 0,
       "calories": 0,
@@ -963,7 +963,7 @@
       "date": "2026-06-30T19:05",
       "sets": 4,
       "reps": 1,
-      "weight": 0.0,
+      "weight": 0,
       "duration": 0,
       "distanceKm": 0,
       "calories": 0,
@@ -979,7 +979,7 @@
       "date": "2026-06-30T18:50",
       "sets": 3,
       "reps": 15,
-      "weight": 0.0,
+      "weight": 0,
       "duration": 0,
       "distanceKm": 0,
       "calories": 0,
@@ -995,7 +995,7 @@
       "date": "2026-06-30T18:35",
       "sets": 4,
       "reps": 15,
-      "weight": 0.0,
+      "weight": 0,
       "duration": 0,
       "distanceKm": 0,
       "calories": 0,
@@ -1011,7 +1011,7 @@
       "date": "2026-06-30T18:20",
       "sets": 4,
       "reps": 15,
-      "weight": 0.0,
+      "weight": 0,
       "duration": 0,
       "distanceKm": 0,
       "calories": 0,
@@ -1027,7 +1027,7 @@
       "date": "2026-06-30T18:00",
       "sets": 4,
       "reps": 15,
-      "weight": 0.0,
+      "weight": 0,
       "duration": 0,
       "distanceKm": 0,
       "calories": 0,
@@ -1043,10 +1043,10 @@
       "date": "2026-06-29T18:00",
       "sets": 0,
       "reps": 0,
-      "weight": 0.0,
+      "weight": 0,
       "duration": 15.33,
       "distanceKm": 0.5,
-      "calories": 147.0,
+      "calories": 147,
       "effort": 0,
       "notes": "Registro histórico proporcionado por Renato."
     },
@@ -1059,10 +1059,10 @@
       "date": "2026-06-29T08:45",
       "sets": 0,
       "reps": 0,
-      "weight": 0.0,
+      "weight": 0,
       "duration": 15.6,
       "distanceKm": 0.96,
-      "calories": 122.0,
+      "calories": 122,
       "effort": 0,
       "notes": "Registro histórico proporcionado por Renato."
     },
@@ -1075,7 +1075,7 @@
       "date": "2026-06-29T08:15",
       "sets": 8,
       "reps": 12,
-      "weight": 0.0,
+      "weight": 0,
       "duration": 0,
       "distanceKm": 0,
       "calories": 0,
@@ -1091,7 +1091,7 @@
       "date": "2026-06-29T08:00",
       "sets": 4,
       "reps": 8,
-      "weight": 0.0,
+      "weight": 0,
       "duration": 0,
       "distanceKm": 0,
       "calories": 0,
@@ -1107,7 +1107,7 @@
       "date": "2026-06-29T07:45",
       "sets": 4,
       "reps": 15,
-      "weight": 10.0,
+      "weight": 10,
       "duration": 0,
       "distanceKm": 0,
       "calories": 0,
@@ -1123,7 +1123,7 @@
       "date": "2026-06-29T07:30",
       "sets": 4,
       "reps": 15,
-      "weight": 15.0,
+      "weight": 15,
       "duration": 0,
       "distanceKm": 0,
       "calories": 0,
@@ -1139,7 +1139,7 @@
       "date": "2026-06-29T07:15",
       "sets": 4,
       "reps": 15,
-      "weight": 0.0,
+      "weight": 0,
       "duration": 0,
       "distanceKm": 0,
       "calories": 0,
@@ -1155,7 +1155,7 @@
       "date": "2026-06-29T07:00",
       "sets": 4,
       "reps": 15,
-      "weight": 0.0,
+      "weight": 0,
       "duration": 0,
       "distanceKm": 0,
       "calories": 0,
@@ -1171,44 +1171,988 @@
       "date": "2026-06-24T07:00",
       "sets": 0,
       "reps": 0,
-      "weight": 0.0,
+      "weight": 0,
       "duration": 15.98,
       "distanceKm": 0.5,
-      "calories": 120.0,
+      "calories": 120,
       "effort": 0,
       "notes": "Registro histórico proporcionado por Renato."
     }
   ],
   "measures": [
     {
+      "id": "m1784131689280",
+      "updatedAt": "2026-07-15T16:08:09.280Z",
+      "date": "2026-07-13",
+      "weight": 90.1,
+      "fat": 32.2,
+      "waist": 105,
+      "chest": 102.8,
+      "hips": 106.6,
+      "arm": 34.5,
+      "thigh": 58.5,
+      "height": 167,
+      "target": 66
+    },
+    {
       "id": "m1",
       "date": "2026-06-30",
       "weight": 91.53,
+      "fat": 32.2,
       "waist": 108,
-      "target": 78
+      "chest": 102.8,
+      "hips": 106.6,
+      "arm": 36,
+      "thigh": 61.5,
+      "height": 167,
+      "target": 66
     },
     {
       "id": "m2",
       "date": "2026-07-01",
       "weight": 91.53,
-      "waist": 106,
-      "target": 78
+      "fat": 32.2,
+      "waist": 108,
+      "chest": 104,
+      "hips": 106.7,
+      "arm": 35,
+      "thigh": 60.5,
+      "height": 167,
+      "target": 66
     },
     {
       "id": "m3",
-      "date": "2026-07-08",
+      "date": "2026-07-09",
       "weight": 90.72,
-      "waist": 105.5,
-      "target": 78
+      "fat": 32.2,
+      "waist": 106,
+      "chest": 104.8,
+      "hips": 107.5,
+      "arm": 35,
+      "thigh": 61,
+      "height": 167,
+      "target": 66
     }
   ],
   "nutrition": [],
-  "exerciseCatalog": [],
-  "plans": [],
+  "exerciseCatalog": [
+    {
+      "id": "ex-extension-de-piernas",
+      "name": "Extensión de piernas",
+      "group": "Piernas",
+      "machine": "Máquina de extensión de cuádriceps",
+      "image": "assets/exercises/extension-de-piernas.jpg",
+      "sets": 4,
+      "reps": 15,
+      "weight": 20,
+      "technique": "Alinea la rodilla con el eje de la máquina.",
+      "days": [
+        0
+      ]
+    },
+    {
+      "id": "ex-prensa-sentada",
+      "name": "Prensa sentada",
+      "group": "Piernas",
+      "machine": "Prensa horizontal de piernas",
+      "image": "assets/exercises/prensa-sentada.jpg",
+      "sets": 4,
+      "reps": 12,
+      "weight": 40,
+      "technique": "Apoya espalda completa y no bloquees rodillas.",
+      "days": [
+        0,
+        4
+      ]
+    },
+    {
+      "id": "ex-curl-femoral-sentado",
+      "name": "Curl femoral sentado",
+      "group": "Piernas",
+      "machine": "Máquina de curl femoral sentado",
+      "image": "assets/exercises/curl-femoral-sentado.jpg",
+      "sets": 3,
+      "reps": 15,
+      "weight": 15,
+      "technique": "Ajusta el rodillo sobre la parte baja de la pierna.",
+      "days": [
+        0
+      ]
+    },
+    {
+      "id": "ex-abduccion-de-cadera",
+      "name": "Abducción de cadera",
+      "group": "Piernas",
+      "machine": "Máquina abductora de cadera",
+      "image": "assets/exercises/abduccion-de-cadera.jpg",
+      "sets": 4,
+      "reps": 15,
+      "weight": 20,
+      "technique": "Abre sin balancear el tronco.",
+      "days": [
+        0
+      ]
+    },
+    {
+      "id": "ex-aduccion-de-cadera",
+      "name": "Aducción de cadera",
+      "group": "Piernas",
+      "machine": "Máquina aductora de cadera",
+      "image": "assets/exercises/aduccion-de-cadera.jpg",
+      "sets": 3,
+      "reps": 15,
+      "weight": 20,
+      "technique": "Cierra con control y sin rebotes.",
+      "days": [
+        0
+      ]
+    },
+    {
+      "id": "ex-patada-de-gluteo",
+      "name": "Patada de glúteo",
+      "group": "Piernas",
+      "machine": "Máquina de glúteo / patada",
+      "image": "assets/exercises/patada-de-gluteo.jpg",
+      "sets": 3,
+      "reps": 12,
+      "weight": 15,
+      "technique": "Mantén pelvis estable.",
+      "days": [
+        0
+      ]
+    },
+    {
+      "id": "ex-elevacion-de-talones",
+      "name": "Elevación de talones",
+      "group": "Piernas",
+      "machine": "Máquina de elevación de pantorrillas",
+      "image": "assets/exercises/elevacion-de-talones.jpg",
+      "sets": 4,
+      "reps": 20,
+      "weight": 20,
+      "technique": "Recorrido completo y pausa arriba.",
+      "days": [
+        0
+      ]
+    },
+    {
+      "id": "ex-hack-squat",
+      "name": "Hack squat",
+      "group": "Piernas",
+      "machine": "Hack squat guiada",
+      "image": "assets/exercises/hack-squat.jpg",
+      "sets": 3,
+      "reps": 12,
+      "weight": 30,
+      "technique": "Pies firmes y espalda apoyada.",
+      "days": [
+        0
+      ]
+    },
+    {
+      "id": "ex-press-de-pecho",
+      "name": "Press de pecho",
+      "group": "Pecho",
+      "machine": "Máquina convergente de pecho",
+      "image": "assets/exercises/press-de-pecho.jpg",
+      "sets": 4,
+      "reps": 12,
+      "weight": 20,
+      "technique": "Empuja sin despegar la espalda.",
+      "days": [
+        1,
+        4
+      ]
+    },
+    {
+      "id": "ex-apertura-de-pecho",
+      "name": "Apertura de pecho",
+      "group": "Pecho",
+      "machine": "Pec deck / contractor de pecho",
+      "image": "assets/exercises/apertura-de-pecho.jpg",
+      "sets": 3,
+      "reps": 12,
+      "weight": 15,
+      "technique": "Controla la apertura.",
+      "days": [
+        1
+      ]
+    },
+    {
+      "id": "ex-press-inclinado",
+      "name": "Press inclinado",
+      "group": "Pecho",
+      "machine": "Máquina de press inclinado",
+      "image": "assets/exercises/press-inclinado.jpg",
+      "sets": 3,
+      "reps": 12,
+      "weight": 15,
+      "technique": "Empuja hacia arriba sin elevar hombros.",
+      "days": [
+        1
+      ]
+    },
+    {
+      "id": "ex-cruce-de-poleas",
+      "name": "Cruce de poleas",
+      "group": "Pecho",
+      "machine": "Polea doble ajustable",
+      "image": "assets/exercises/cruce-de-poleas.jpg",
+      "sets": 3,
+      "reps": 15,
+      "weight": 10,
+      "technique": "Cierra brazos frente al pecho.",
+      "days": [
+        1
+      ]
+    },
+    {
+      "id": "ex-fondos-asistidos",
+      "name": "Fondos asistidos",
+      "group": "Pecho",
+      "machine": "Máquina de fondos asistidos",
+      "image": "assets/exercises/fondos-asistidos.jpg",
+      "sets": 3,
+      "reps": 10,
+      "weight": 25,
+      "technique": "Usa asistencia suficiente.",
+      "days": [
+        1,
+        4
+      ]
+    },
+    {
+      "id": "ex-press-declinado",
+      "name": "Press declinado",
+      "group": "Pecho",
+      "machine": "Máquina de press declinado",
+      "image": "assets/exercises/press-declinado.jpg",
+      "sets": 3,
+      "reps": 12,
+      "weight": 15,
+      "technique": "Mantén pecho estable.",
+      "days": [
+        1
+      ]
+    },
+    {
+      "id": "ex-press-guiado",
+      "name": "Press guiado",
+      "group": "Pecho",
+      "machine": "Smith machine con banco",
+      "image": "assets/exercises/press-guiado.jpg",
+      "sets": 3,
+      "reps": 10,
+      "weight": 20,
+      "technique": "Usa topes de seguridad.",
+      "days": [
+        1
+      ]
+    },
+    {
+      "id": "ex-extension-de-triceps",
+      "name": "Extensión de tríceps",
+      "group": "Pecho",
+      "machine": "Press vertical guiado",
+      "image": "assets/exercises/extension-de-triceps.jpg",
+      "sets": 3,
+      "reps": 15,
+      "weight": 10,
+      "technique": "Mantén codos cerca del torso.",
+      "days": [
+        1
+      ]
+    },
+    {
+      "id": "ex-jalon-al-pecho",
+      "name": "Jalón al pecho",
+      "group": "Espalda",
+      "machine": "Polea alta / lat pulldown",
+      "image": "assets/exercises/jalon-al-pecho.jpg",
+      "sets": 4,
+      "reps": 12,
+      "weight": 20,
+      "technique": "Barra hacia pecho alto.",
+      "days": [
+        2,
+        4
+      ]
+    },
+    {
+      "id": "ex-remo-sentado",
+      "name": "Remo sentado",
+      "group": "Espalda",
+      "machine": "Máquina de remo sentado",
+      "image": "assets/exercises/remo-sentado.jpg",
+      "sets": 4,
+      "reps": 12,
+      "weight": 20,
+      "technique": "Pecho elevado.",
+      "days": [
+        2,
+        4
+      ]
+    },
+    {
+      "id": "ex-remo-convergente",
+      "name": "Remo convergente",
+      "group": "Espalda",
+      "machine": "Remo convergente con pecho apoyado",
+      "image": "assets/exercises/remo-convergente.jpg",
+      "sets": 3,
+      "reps": 12,
+      "weight": 20,
+      "technique": "No despegues el pecho.",
+      "days": [
+        2
+      ]
+    },
+    {
+      "id": "ex-pullover",
+      "name": "Pullover",
+      "group": "Espalda",
+      "machine": "Máquina de pullover",
+      "image": "assets/exercises/pullover.jpg",
+      "sets": 3,
+      "reps": 12,
+      "weight": 15,
+      "technique": "Hombros bajos.",
+      "days": [
+        2
+      ]
+    },
+    {
+      "id": "ex-curl-en-polea",
+      "name": "Curl en polea",
+      "group": "Espalda",
+      "machine": "Polea baja",
+      "image": "assets/exercises/curl-en-polea.jpg",
+      "sets": 3,
+      "reps": 15,
+      "weight": 10,
+      "technique": "Mueve solo antebrazos.",
+      "days": [
+        2
+      ]
+    },
+    {
+      "id": "ex-pajaros",
+      "name": "Pájaros",
+      "group": "Espalda",
+      "machine": "Pec deck invertido",
+      "image": "assets/exercises/pajaros.jpg",
+      "sets": 3,
+      "reps": 15,
+      "weight": 10,
+      "technique": "Abre con control.",
+      "days": [
+        2
+      ]
+    },
+    {
+      "id": "ex-dominadas-asistidas",
+      "name": "Dominadas asistidas",
+      "group": "Espalda",
+      "machine": "Máquina de dominadas asistidas",
+      "image": "assets/exercises/dominadas-asistidas.jpg",
+      "sets": 3,
+      "reps": 8,
+      "weight": 30,
+      "technique": "Usa asistencia adecuada.",
+      "days": [
+        2
+      ]
+    },
+    {
+      "id": "ex-remo-unilateral",
+      "name": "Remo unilateral",
+      "group": "Espalda",
+      "machine": "Remo unilateral guiado",
+      "image": "assets/exercises/remo-unilateral.jpg",
+      "sets": 3,
+      "reps": 12,
+      "weight": 15,
+      "technique": "Completa ambos lados.",
+      "days": [
+        2
+      ]
+    },
+    {
+      "id": "ex-press-de-hombros",
+      "name": "Press de hombros",
+      "group": "Hombros",
+      "machine": "Máquina de press de hombros",
+      "image": "assets/exercises/press-de-hombros.jpg",
+      "sets": 4,
+      "reps": 12,
+      "weight": 15,
+      "technique": "Ajusta asiento a altura correcta.",
+      "days": [
+        3,
+        4
+      ]
+    },
+    {
+      "id": "ex-elevacion-lateral",
+      "name": "Elevación lateral",
+      "group": "Hombros",
+      "machine": "Máquina de elevación lateral",
+      "image": "assets/exercises/elevacion-lateral.jpg",
+      "sets": 3,
+      "reps": 15,
+      "weight": 10,
+      "technique": "Sin impulso.",
+      "days": [
+        3
+      ]
+    },
+    {
+      "id": "ex-pajaros-posterior",
+      "name": "Pájaros posterior",
+      "group": "Hombros",
+      "machine": "Pec deck invertido",
+      "image": "assets/exercises/pajaros-posterior.jpg",
+      "sets": 3,
+      "reps": 15,
+      "weight": 10,
+      "technique": "Hombros abajo.",
+      "days": [
+        3
+      ]
+    },
+    {
+      "id": "ex-face-pull",
+      "name": "Face pull",
+      "group": "Hombros",
+      "machine": "Polea alta con cuerda",
+      "image": "assets/exercises/face-pull.jpg",
+      "sets": 3,
+      "reps": 15,
+      "weight": 10,
+      "technique": "Lleva cuerda al rostro.",
+      "days": [
+        3
+      ]
+    },
+    {
+      "id": "ex-rotacion-de-torso",
+      "name": "Rotación de torso",
+      "group": "Hombros",
+      "machine": "Máquina de rotación de torso",
+      "image": "assets/exercises/rotacion-de-torso.jpg",
+      "sets": 3,
+      "reps": 12,
+      "weight": 10,
+      "technique": "Gira lentamente.",
+      "days": [
+        3
+      ]
+    },
+    {
+      "id": "ex-crunch-abdominal",
+      "name": "Crunch abdominal",
+      "group": "Hombros",
+      "machine": "Máquina abdominal sentada",
+      "image": "assets/exercises/crunch-abdominal.jpg",
+      "sets": 4,
+      "reps": 15,
+      "weight": 15,
+      "technique": "Exhala al flexionar.",
+      "days": [
+        3,
+        4
+      ]
+    },
+    {
+      "id": "ex-extension-lumbar",
+      "name": "Extensión lumbar",
+      "group": "Hombros",
+      "machine": "Banco romano",
+      "image": "assets/exercises/extension-lumbar.jpg",
+      "sets": 3,
+      "reps": 12,
+      "weight": 0,
+      "technique": "Espalda neutral.",
+      "days": [
+        3
+      ]
+    },
+    {
+      "id": "ex-pallof-press",
+      "name": "Pallof press",
+      "group": "Hombros",
+      "machine": "Polea ajustable",
+      "image": "assets/exercises/pallof-press.jpg",
+      "sets": 3,
+      "reps": 12,
+      "weight": 7.5,
+      "technique": "Resiste la rotación.",
+      "days": [
+        3
+      ]
+    },
+    {
+      "id": "ex-curl-femoral",
+      "name": "Curl femoral",
+      "group": "General",
+      "machine": "Máquina de curl femoral sentado",
+      "image": "assets/exercises/curl-femoral.jpg",
+      "sets": 3,
+      "reps": 15,
+      "weight": 15,
+      "technique": "Cadera apoyada.",
+      "days": [
+        4
+      ]
+    },
+    {
+      "name": "Press de banca",
+      "group": "Pecho",
+      "machine": "Banco plano con barra",
+      "image": "assets/exercises/press-de-banca.jpg",
+      "sets": 4,
+      "reps": 10,
+      "weight": 20,
+      "technique": "Mantén escápulas apoyadas y controla la barra.",
+      "id": "ex-press-de-banca",
+      "days": []
+    },
+    {
+      "name": "Press de banca guiado",
+      "group": "Pecho",
+      "machine": "Smith machine con banco",
+      "image": "assets/exercises/press-de-banca-guiado.jpg",
+      "sets": 4,
+      "reps": 10,
+      "weight": 20,
+      "technique": "Ajusta los topes y baja con control.",
+      "id": "ex-press-de-banca-guiado",
+      "days": []
+    },
+    {
+      "name": "Press de pecho con mancuernas",
+      "group": "Pecho",
+      "machine": "Banco plano y mancuernas",
+      "image": "assets/exercises/press-de-pecho-con-mancuernas.jpg",
+      "sets": 4,
+      "reps": 10,
+      "weight": 10,
+      "technique": "Mantén muñecas alineadas y recorrido controlado.",
+      "id": "ex-press-de-pecho-con-mancuernas",
+      "days": []
+    },
+    {
+      "name": "Remo con mancuernas",
+      "group": "Espalda",
+      "machine": "Banco y mancuerna",
+      "image": "assets/exercises/remo-con-mancuernas.jpg",
+      "sets": 4,
+      "reps": 12,
+      "weight": 10,
+      "technique": "Lleva el codo hacia la cadera sin girar el torso.",
+      "id": "ex-remo-con-mancuernas",
+      "days": []
+    },
+    {
+      "name": "Curl de bíceps con mancuernas",
+      "group": "Bíceps",
+      "machine": "Mancuernas",
+      "image": "assets/exercises/curl-de-biceps-con-mancuernas.jpg",
+      "sets": 3,
+      "reps": 15,
+      "weight": 5,
+      "technique": "Mantén los codos cerca del cuerpo.",
+      "id": "ex-curl-de-biceps-con-mancuernas",
+      "days": []
+    },
+    {
+      "name": "Sentadilla con barra guiada",
+      "group": "Piernas",
+      "machine": "Smith machine",
+      "image": "assets/exercises/sentadilla-con-barra-guiada.jpg",
+      "sets": 4,
+      "reps": 12,
+      "weight": 20,
+      "technique": "Pies firmes, rodillas alineadas y espalda neutral.",
+      "id": "ex-sentadilla-con-barra-guiada",
+      "days": []
+    },
+    {
+      "name": "Barra 7x7x7",
+      "group": "Bíceps",
+      "machine": "Barra recta o EZ",
+      "image": "assets/exercises/barra-7x7x7.jpg",
+      "sets": 3,
+      "reps": 21,
+      "weight": 10,
+      "technique": "Realiza 7 repeticiones parciales abajo, 7 arriba y 7 completas.",
+      "id": "ex-barra-7x7x7",
+      "days": []
+    },
+    {
+      "name": "Leg Press",
+      "group": "Piernas",
+      "machine": "Máquina Leg Press",
+      "image": "assets/exercises/prensa-sentada.jpg",
+      "sets": 4,
+      "reps": 12,
+      "weight": 49.9,
+      "technique": "Apoya la espalda y controla el recorrido sin bloquear las rodillas.",
+      "id": "ex-leg-press",
+      "days": []
+    },
+    {
+      "name": "Sentadilla en Smith Machine",
+      "group": "Piernas",
+      "machine": "Smith machine",
+      "image": "assets/exercises/sentadilla-con-barra-guiada.jpg",
+      "sets": 4,
+      "reps": 12,
+      "weight": 19.5,
+      "technique": "Mantén pies firmes, rodillas alineadas y espalda neutral.",
+      "id": "ex-sentadilla-en-smith-machine",
+      "days": []
+    }
+  ],
+  "plans": [
+    {
+      "day": "Lunes",
+      "focus": "Piernas en máquinas",
+      "group": "Piernas",
+      "swim": "Técnica suave",
+      "ex": [
+        [
+          "Extensión de piernas",
+          "Máquina de extensión de cuádriceps",
+          "4 × 15",
+          20,
+          "Alinea la rodilla con el eje de la máquina."
+        ],
+        [
+          "Prensa sentada",
+          "Prensa horizontal de piernas",
+          "4 × 12",
+          40,
+          "Apoya espalda completa y no bloquees rodillas."
+        ],
+        [
+          "Curl femoral sentado",
+          "Máquina de curl femoral sentado",
+          "3 × 15",
+          15,
+          "Ajusta el rodillo sobre la parte baja de la pierna."
+        ],
+        [
+          "Abducción de cadera",
+          "Máquina abductora de cadera",
+          "4 × 15",
+          20,
+          "Abre sin balancear el tronco."
+        ],
+        [
+          "Aducción de cadera",
+          "Máquina aductora de cadera",
+          "3 × 15",
+          20,
+          "Cierra con control y sin rebotes."
+        ],
+        [
+          "Patada de glúteo",
+          "Máquina de glúteo / patada",
+          "3 × 12",
+          15,
+          "Mantén pelvis estable."
+        ],
+        [
+          "Elevación de talones",
+          "Máquina de elevación de pantorrillas",
+          "4 × 20",
+          20,
+          "Recorrido completo y pausa arriba."
+        ],
+        [
+          "Hack squat",
+          "Hack squat guiada",
+          "3 × 12",
+          30,
+          "Pies firmes y espalda apoyada."
+        ]
+      ]
+    },
+    {
+      "day": "Martes",
+      "focus": "Pecho + tríceps",
+      "group": "Pecho",
+      "swim": "Ritmo fácil",
+      "ex": [
+        [
+          "Press de pecho",
+          "Máquina convergente de pecho",
+          "4 × 12",
+          20,
+          "Empuja sin despegar la espalda."
+        ],
+        [
+          "Apertura de pecho",
+          "Pec deck / contractor de pecho",
+          "3 × 12",
+          15,
+          "Controla la apertura."
+        ],
+        [
+          "Press inclinado",
+          "Máquina de press inclinado",
+          "3 × 12",
+          15,
+          "Empuja hacia arriba sin elevar hombros."
+        ],
+        [
+          "Cruce de poleas",
+          "Polea doble ajustable",
+          "3 × 15",
+          10,
+          "Cierra brazos frente al pecho."
+        ],
+        [
+          "Fondos asistidos",
+          "Máquina de fondos asistidos",
+          "3 × 10",
+          25,
+          "Usa asistencia suficiente."
+        ],
+        [
+          "Press declinado",
+          "Máquina de press declinado",
+          "3 × 12",
+          15,
+          "Mantén pecho estable."
+        ],
+        [
+          "Press guiado",
+          "Smith machine con banco",
+          "3 × 10",
+          20,
+          "Usa topes de seguridad."
+        ],
+        [
+          "Extensión de tríceps",
+          "Press vertical guiado",
+          "3 × 15",
+          10,
+          "Mantén codos cerca del torso."
+        ]
+      ]
+    },
+    {
+      "day": "Miércoles",
+      "focus": "Espalda + bíceps",
+      "group": "Espalda",
+      "swim": "Técnica + continuidad",
+      "ex": [
+        [
+          "Jalón al pecho",
+          "Polea alta / lat pulldown",
+          "4 × 12",
+          20,
+          "Barra hacia pecho alto."
+        ],
+        [
+          "Remo sentado",
+          "Máquina de remo sentado",
+          "4 × 12",
+          20,
+          "Pecho elevado."
+        ],
+        [
+          "Remo convergente",
+          "Remo convergente con pecho apoyado",
+          "3 × 12",
+          20,
+          "No despegues el pecho."
+        ],
+        [
+          "Pullover",
+          "Máquina de pullover",
+          "3 × 12",
+          15,
+          "Hombros bajos."
+        ],
+        [
+          "Curl en polea",
+          "Polea baja",
+          "3 × 15",
+          10,
+          "Mueve solo antebrazos."
+        ],
+        [
+          "Pájaros",
+          "Pec deck invertido",
+          "3 × 15",
+          10,
+          "Abre con control."
+        ],
+        [
+          "Dominadas asistidas",
+          "Máquina de dominadas asistidas",
+          "3 × 8",
+          30,
+          "Usa asistencia adecuada."
+        ],
+        [
+          "Remo unilateral",
+          "Remo unilateral guiado",
+          "3 × 12",
+          15,
+          "Completa ambos lados."
+        ]
+      ]
+    },
+    {
+      "day": "Jueves",
+      "focus": "Hombros + abdomen",
+      "group": "Hombros",
+      "swim": "Recuperación acuática",
+      "ex": [
+        [
+          "Press de hombros",
+          "Máquina de press de hombros",
+          "4 × 12",
+          15,
+          "Ajusta asiento a altura correcta."
+        ],
+        [
+          "Elevación lateral",
+          "Máquina de elevación lateral",
+          "3 × 15",
+          10,
+          "Sin impulso."
+        ],
+        [
+          "Pájaros posterior",
+          "Pec deck invertido",
+          "3 × 15",
+          10,
+          "Hombros abajo."
+        ],
+        [
+          "Face pull",
+          "Polea alta con cuerda",
+          "3 × 15",
+          10,
+          "Lleva cuerda al rostro."
+        ],
+        [
+          "Rotación de torso",
+          "Máquina de rotación de torso",
+          "3 × 12",
+          10,
+          "Gira lentamente."
+        ],
+        [
+          "Crunch abdominal",
+          "Máquina abdominal sentada",
+          "4 × 15",
+          15,
+          "Exhala al flexionar."
+        ],
+        [
+          "Extensión lumbar",
+          "Banco romano",
+          "3 × 12",
+          0,
+          "Espalda neutral."
+        ],
+        [
+          "Pallof press",
+          "Polea ajustable",
+          "3 × 12",
+          7.5,
+          "Resiste la rotación."
+        ]
+      ]
+    },
+    {
+      "day": "Viernes",
+      "focus": "Fuerza general",
+      "group": "General",
+      "swim": "Nado controlado",
+      "ex": [
+        [
+          "Prensa sentada",
+          "Prensa horizontal de piernas",
+          "3 × 12",
+          35,
+          "Recorrido cómodo."
+        ],
+        [
+          "Press de pecho",
+          "Máquina convergente de pecho",
+          "3 × 12",
+          20,
+          "Control de regreso."
+        ],
+        [
+          "Jalón al pecho",
+          "Polea alta / lat pulldown",
+          "3 × 12",
+          20,
+          "Sin balanceo."
+        ],
+        [
+          "Remo sentado",
+          "Máquina de remo sentado",
+          "3 × 12",
+          20,
+          "Codos atrás."
+        ],
+        [
+          "Press de hombros",
+          "Máquina de press de hombros",
+          "3 × 12",
+          12.5,
+          "Carga moderada."
+        ],
+        [
+          "Curl femoral",
+          "Máquina de curl femoral sentado",
+          "3 × 15",
+          15,
+          "Cadera apoyada."
+        ],
+        [
+          "Crunch abdominal",
+          "Máquina abdominal sentada",
+          "3 × 15",
+          15,
+          "Exhala."
+        ],
+        [
+          "Fondos asistidos",
+          "Máquina de fondos asistidos",
+          "3 × 10",
+          25,
+          "Técnica limpia."
+        ]
+      ]
+    },
+    {
+      "day": "Sábado",
+      "focus": "Natación principal",
+      "group": "Cardio",
+      "swim": "Sesión principal",
+      "ex": []
+    },
+    {
+      "day": "Domingo",
+      "focus": "Descanso total",
+      "group": "Recuperación",
+      "swim": "Sin natación",
+      "ex": []
+    }
+  ],
   "deletedIds": {
     "activities": [],
     "measures": [],
     "nutrition": []
-  },
-  "note": "El sitio completa catálogo y planes desde sus valores integrados cuando estas listas están vacías."
+  }
 }
